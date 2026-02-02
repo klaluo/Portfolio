@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,9 +14,12 @@ export default function Navbar() {
                 <div className='navPill'>
                     <div className='navLeft'>
                         <Link className='navIconButton' href='/' aria-label='Home'>
-                            <svg viewBox='0 0 24 24' aria-hidden='true'>
-                                <path d='M12 2l2.2 4.5 5 0.7-3.6 3.5 0.9 5-4.5-2.4-4.5 2.4 0.9-5-3.6-3.5 5-0.7L12 2z' />
-                            </svg>
+                            <Image
+                                src='/images/logo.png'
+                                alt='Logo'
+                                width={36}
+                                height={36}
+                            />
                         </Link>
                         <ul className='navLinks'>
                             <li>
