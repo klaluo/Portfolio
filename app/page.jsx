@@ -4,7 +4,7 @@ import Lanyard from "../components/Lanyard";
 export default function Home() {
     return (
         <>
-            <section className='hero'>
+            <section className='hero' id='hero'>
                 <div className='container heroLayout'>
                     <div className='heroContent'>
                         <span className='heroBadge'>Hey! I’m Kayla,</span>
