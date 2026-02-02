@@ -19,9 +19,7 @@ export default function Navbar() {
                         </Link>
                         <ul className='navLinks'>
                             <li>
-                                <Link className={isActive("/projects") ? "active" : ""} href='/projects'>
-                                    Projects
-                                </Link>
+                                <Link href='/#featured-work'>Work</Link>
                             </li>
                             <li>
                                 <Link className={isActive("/about") ? "active" : ""} href='/about'>

@@ -40,7 +40,7 @@ export default function Home() {
             </section>
 
             <main className='main'>
-                <section className='section'>
+                <section className='section' id='featured-work'>
                     <div className='container'>
                         <h2 className='sectionTitle'>Featured Work</h2>
                         <div className='grid'>
