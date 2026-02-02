@@ -1,129 +1,71 @@
-import Link from "next/link";
+"use client";
+import { useState } from "react";
 
 export default function About() {
-    const skills = [
+    const [openIndex, setOpenIndex] = useState(0);
+    const sections = [
         {
-            category: "Frontend",
-            items: "React, Next.js, JavaScript, HTML, CSS, Tailwind",
+            title: "Background",
+            body: "I’m a UX-focused designer and developer who enjoys turning complex ideas into clear, human experiences. My background blends strategy, interaction design, and front-end implementation so I can move from concept to polished delivery with intention.",
         },
         {
-            category: "Backend",
-            items: "Node.js, Express, Python, MongoDB, PostgreSQL",
+            title: "Design Philosophy",
+            body: "I believe good design balances clarity with personality. I prioritize systems thinking, thoughtful hierarchy, and accessible interfaces that feel intuitive and warm. Every decision should earn its place and support the user’s path.",
         },
-        { category: "Tools", items: "Git, Docker, Figma, VS Code, Webpack" },
+        {
+            title: "Things I Love",
+            body: "Design systems, delightful micro‑interactions, and collaborating across disciplines. Outside of work, I enjoy exploring new tools, collecting design inspiration, and experimenting with motion and visual storytelling.",
+        },
     ];
 
     return (
-        <main className='main'>
-            <section className='section'>
-                <div className='container'>
-                    <h1 className='sectionTitle'>About Me</h1>
-                    <div className='sectionContent'>
-                        <div className='card'>
-                            <h2
-                                style={{
-                                    fontSize: "1.8rem",
-                                    fontWeight: "700",
-                                    marginBottom: "1.5rem",
-                                    color: "var(--primary)",
-                                }}
-                            >
-                                Hi, I'm a Creative Developer
-                            </h2>
-                            <p
-                                style={{
-                                    fontSize: "1.1rem",
-                                    marginBottom: "1.5rem",
-                                    color: "var(--text-light)",
-                                }}
-                            >
-                                I'm passionate about creating beautiful,
-                                functional, and user-centered digital
-                                experiences. With a background in both design
-                                and development, I bridge the gap between
-                                creativity and technical excellence.
-                            </p>
-                            <p
-                                style={{
-                                    fontSize: "1.1rem",
-                                    marginBottom: "1.5rem",
-                                    color: "var(--text-light)",
-                                }}
-                            >
-                                Over the years, I've worked on various projects
-                                ranging from simple websites to complex web
-                                applications. I believe in writing clean,
-                                maintainable code and designing intuitive
-                                interfaces that users love to interact with.
-                            </p>
-                            <p
-                                style={{
-                                    fontSize: "1.1rem",
-                                    color: "var(--text-light)",
-                                }}
-                            >
-                                When I'm not coding, you can find me exploring
-                                new technologies, contributing to open-source
-                                projects, or sharing knowledge with the
-                                developer community.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className='section'>
-                <div className='container'>
-                    <h2 className='sectionTitle'>Skills & Expertise</h2>
-                    <div className='grid'>
-                        {skills.map((skill, index) => (
-                            <div key={index} className='card'>
-                                <h3 className='cardTitle'>{skill.category}</h3>
-                                <p className='cardDescription'>{skill.items}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section
-                className='section'
-                style={{
-                    background: "var(--primary)",
-                    color: "white",
-                    margin: "0 -20px",
-                }}
-            >
-                <div className='container'>
-                    <div className='sectionContent'>
-                        <h2
-                            style={{
-                                fontSize: "2.5rem",
-                                fontWeight: "700",
-                                marginBottom: "1.5rem",
-                                textAlign: "center",
-                                paddingBottom: 0,
-                                color: "white",
-                            }}
-                        >
-                            Let's Work Together
-                        </h2>
-                        <p
-                            style={{
-                                fontSize: "1.1rem",
-                                textAlign: "center",
-                                marginBottom: "2rem",
-                                opacity: 0.9,
-                            }}
-                        >
-                            I'm always interested in new opportunities and
-                            interesting projects.
+        <main className='main aboutPage'>
+            <section className='section aboutSection'>
+                <div className='container aboutContainer'>
+                    <div className='aboutHeader'>
+                        <h1 className='aboutTitle'>Kayla Luo</h1>
+                        <p className='aboutIntro'>
+                            Strategic empath and product‑minded designer focused on
+                            building clear, human interfaces. I love translating
+                            complexity into calm, intuitive experiences.
                         </p>
-                        <div style={{ textAlign: "center" }}>
-                            <Link href='/contact' className='ctaButton'>
-                                Get In Touch
-                            </Link>
-                        </div>
+                    </div>
+                    <div className='aboutAccordion'>
+                        {sections.map((section, index) => {
+                            const isOpen = openIndex === index;
+                            const contentId = `about-panel-${index}`;
+                            return (
+                                <div
+                                    key={section.title}
+                                    className={`accordionItem ${
+                                        isOpen ? "isOpen" : ""
+                                    }`}
+                                >
+                                    <button
+                                        type='button'
+                                        className='accordionButton'
+                                        onClick={() =>
+                                            setOpenIndex(isOpen ? -1 : index)
+                                        }
+                                        aria-expanded={isOpen}
+                                        aria-controls={contentId}
+                                    >
+                                        <span>{section.title}</span>
+                                        <span className='accordionIcon'>
+                                            {isOpen ? "×" : "+"}
+                                        </span>
+                                    </button>
+                                    <div
+                                        id={contentId}
+                                        className='accordionContent'
+                                        role='region'
+                                        aria-hidden={!isOpen}
+                                    >
+                                        <p>{section.body}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

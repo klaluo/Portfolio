@@ -304,6 +304,77 @@ a:hover {
   color: white;
 }
 
+.aboutPage {
+  padding-top: 6rem;
+}
+
+.aboutSection {
+  padding: 4rem 0 6rem;
+}
+
+.aboutContainer {
+  max-width: 860px;
+}
+
+.aboutHeader {
+  margin-bottom: 2.5rem;
+}
+
+.aboutTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1f1f1f;
+}
+
+.aboutIntro {
+  font-size: 1.05rem;
+  color: #5f5f5f;
+  max-width: 620px;
+}
+
+.aboutAccordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid #ececec;
+}
+
+.accordionItem {
+  border-bottom: 1px solid #ececec;
+}
+
+.accordionButton {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+}
+
+.accordionIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #6b6b6b;
+}
+
+.accordionContent {
+  padding: 0 0 1.5rem 0;
+  color: #5f5f5f;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.accordionItem:not(.isOpen) .accordionContent {
+  display: none;
+}
+
 .heroGhostButton {
   display: inline-flex;
   align-items: center;
