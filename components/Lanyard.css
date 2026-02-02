@@ -1,6 +1,6 @@
 .lanyard-wrapper {
-  width: 45vw;
-  height: 100vh;
+  width: 60vw;
+  height: 130vh;
   max-width: none;
   position: relative;
 }
@@ -26,14 +26,14 @@
 
 @media (max-width: 900px) {
   .lanyard-wrapper {
-    width: 55vw;
-    height: 90vh;
+    width: 70vw;
+    height: 110vh;
   }
 }
 
 @media (max-width: 768px) {
   .lanyard-wrapper {
-    width: 80vw;
-    height: 70vh;
+    width: 85vw;
+    height: 90vh;
   }
 }
