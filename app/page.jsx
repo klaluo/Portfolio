@@ -41,7 +41,7 @@ export default function Home() {
                     <div className='container'>
                         <h2 className='sectionTitle'>Featured Work</h2>
                         <div className='grid'>
-                            <article className='card cardTemplate'>
+                            <Link href='/projects/project-1' className='card cardTemplate'>
                                 <div className='cardMedia'>
                                     <div className='cardMediaInner' />
                                 </div>
@@ -66,8 +66,8 @@ export default function Home() {
                                         </span>
                                     </div>
                                 </div>
-                            </article>
-                            <article className='card cardTemplate'>
+                            </Link>
+                            <Link href='/projects/project-2' className='card cardTemplate'>
                                 <div className='cardMedia'>
                                     <div className='cardMediaInner' />
                                 </div>
@@ -92,8 +92,8 @@ export default function Home() {
                                         </span>
                                     </div>
                                 </div>
-                            </article>
-                            <article className='card cardTemplate'>
+                            </Link>
+                            <Link href='/projects/project-3' className='card cardTemplate'>
                                 <div className='cardMedia'>
                                     <div className='cardMediaInner' />
                                 </div>
@@ -118,7 +118,7 @@ export default function Home() {
                                         </span>
                                     </div>
                                 </div>
-                            </article>
+                            </Link>
                         </div>
                     </div>
                 </section>
