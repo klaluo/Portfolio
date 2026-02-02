@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function About() {
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openSections, setOpenSections] = useState(() => new Set([0]));
     const sections = [
         {
             title: "Background",
@@ -32,7 +32,7 @@ export default function About() {
                     </div>
                     <div className='aboutAccordion'>
                         {sections.map((section, index) => {
-                            const isOpen = openIndex === index;
+                            const isOpen = openSections.has(index);
                             const contentId = `about-panel-${index}`;
                             return (
                                 <div
@@ -45,7 +45,15 @@ export default function About() {
                                         type='button'
                                         className='accordionButton'
                                         onClick={() =>
-                                            setOpenIndex(isOpen ? -1 : index)
+                                            setOpenSections((prev) => {
+                                                const next = new Set(prev);
+                                                if (next.has(index)) {
+                                                    next.delete(index);
+                                                } else {
+                                                    next.add(index);
+                                                }
+                                                return next;
+                                            })
                                         }
                                         aria-expanded={isOpen}
                                         aria-controls={contentId}
