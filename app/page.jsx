@@ -9,11 +9,8 @@ export default function Home() {
                     <div className='heroContent'>
                         <span className='heroBadge'>Hey! I’m Kayla,</span>
                         <h1 className='heroTitle'>
-                            a{" "}
-                            <span className='heroTitleHighlight'>
-                                Strategic Empath
-                            </span>{" "}
-                            who designs with precision and purpose.
+                            a Strategic Empath who simplifies complexity and
+                            humanizes technology
                         </h1>
                         <p className='heroSubtitle'>
                             I combine UX strategy and thoughtful UI to create

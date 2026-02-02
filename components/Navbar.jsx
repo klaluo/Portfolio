@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,6 +7,27 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
     const pathname = usePathname();
     const isActive = (href) => pathname === href;
+    const [activeSection, setActiveSection] = useState("");
+
+    useEffect(() => {
+        if (pathname !== "/") {
+            setActiveSection("");
+            return;
+        }
+
+        const section = document.getElementById("featured-work");
+        if (!section) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setActiveSection(entry.isIntersecting ? "featured-work" : "");
+            },
+            { rootMargin: "-40% 0px -40% 0px" }
+        );
+
+        observer.observe(section);
+        return () => observer.disconnect();
+    }, [pathname]);
 
     return (
         <nav className='nav'>
@@ -23,7 +44,16 @@ export default function Navbar() {
                         </Link>
                         <ul className='navLinks'>
                             <li>
-                                <Link href='/#featured-work'>Work</Link>
+                                <Link
+                                    href='/#featured-work'
+                                    className={
+                                        pathname === "/" && activeSection === "featured-work"
+                                            ? "active"
+                                            : ""
+                                    }
+                                >
+                                    Work
+                                </Link>
                             </li>
                             <li>
                                 <Link className={isActive("/about") ? "active" : ""} href='/about'>
