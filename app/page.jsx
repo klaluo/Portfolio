@@ -41,13 +41,13 @@ export default function Home() {
                     <div className='container'>
                         <h2 className='sectionTitle'>Featured Work</h2>
                         <div className='grid'>
-                            <Link href='/projects/project-1' className='card cardTemplate'>
+                            <Link href='/projects/gotit' className='card cardTemplate'>
                                 <div className='cardMedia'>
                                     <div className='cardMediaInner' />
                                 </div>
                                 <div className='cardBody'>
                                     <div className='cardHeader'>
-                                        <h3 className='cardTitle'>Project One</h3>
+                                        <h3 className='cardTitle'>GotIt</h3>
                                         <span className='cardBadge'>Case Study</span>
                                     </div>
                                     <p className='cardDescription'>
@@ -67,13 +67,13 @@ export default function Home() {
                                     </div>
                                 </div>
                             </Link>
-                            <Link href='/projects/project-2' className='card cardTemplate'>
+                            <Link href='/projects/daybreak' className='card cardTemplate'>
                                 <div className='cardMedia'>
                                     <div className='cardMediaInner' />
                                 </div>
                                 <div className='cardBody'>
                                     <div className='cardHeader'>
-                                        <h3 className='cardTitle'>Project Two</h3>
+                                        <h3 className='cardTitle'>Daybreak</h3>
                                         <span className='cardBadge'>Case Study</span>
                                     </div>
                                     <p className='cardDescription'>
