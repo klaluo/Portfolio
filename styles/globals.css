@@ -61,7 +61,7 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   padding: 1.1rem 0;
   background: transparent;
 }
@@ -94,13 +94,21 @@ a:hover {
   width: 48px;
   height: 48px;
   border-radius: 999px;
-  border: 1px solid #e2e2e2;
-  background: white;
+  border: none;
+  background: transparent;
   display: grid;
   place-items: center;
   color: #1f2937;
   cursor: pointer;
   text-decoration: none;
+}
+
+.navIconButton img {
+  transition: transform 0.5s ease;
+}
+
+.navIconButton:hover img {
+  transform: rotate(360deg);
 }
 
 .navIconButton svg {
@@ -203,7 +211,7 @@ a:hover {
 
 .heroContent {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .heroContent {
@@ -223,12 +231,16 @@ a:hover {
 }
 
 .heroLanyardColumn {
+  position: absolute;
+  top: -25rem;
+  right: -15rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   pointer-events: none;
-  align-self: start;
-  margin-top: -2rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
 }
 
 .heroPortrait {
@@ -565,6 +577,39 @@ a:hover {
   grid-template-columns: repeat(2, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+}
+
+.featuredWorkSection {
+  padding-top: 1rem;
+}
+
+.featuredFrame {
+  position: relative;
+  margin-top: 1rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.5rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 24px;
+  background: transparent;
+}
+
+.featuredFrame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.featuredFrame > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Forms */
