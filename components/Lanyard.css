@@ -1,0 +1,39 @@
+.lanyard-wrapper {
+  width: 100%;
+  max-width: 520px;
+  height: 620px;
+  position: relative;
+}
+
+.lanyard-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.lanyard-placeholder,
+.lanyard-loading {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.95rem;
+  padding: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .lanyard-wrapper {
+    max-width: 420px;
+    height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    max-width: 300px;
+    height: 300px;
+  }
+}
