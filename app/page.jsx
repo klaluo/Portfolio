@@ -6,9 +6,6 @@ export default function Home() {
         <>
             <section className='hero'>
                 <div className='container heroLayout'>
-                    <div className='heroLanyard'>
-                        <Lanyard />
-                    </div>
                     <div className='heroContent'>
                         <span className='heroBadge'>Hey! I’m Kayla,</span>
                         <h1 className='heroTitle'>
@@ -35,6 +32,9 @@ export default function Home() {
                                 <span aria-hidden='true'>↗</span>
                             </Link>
                         </div>
+                    </div>
+                    <div className='heroLanyardColumn' aria-hidden='true'>
+                        <Lanyard />
                     </div>
                 </div>
             </section>
