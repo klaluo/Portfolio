@@ -47,19 +47,19 @@ export default function Home() {
                                 </div>
                                 <div className='cardBody'>
                                     <div className='cardHeader'>
-                                        <h3 className='cardTitle'>GotIt</h3>
+                                        <h3 className='cardTitle'>Got It</h3>
                                         <span className='cardBadge'>Case Study</span>
                                     </div>
                                     <p className='cardDescription'>
-                                        A focused product experience that simplifies
-                                        decision‑making and builds confidence.
+                                        An AI powered study tool designed for neurodiverse
+                                        electrical apprentices in BC.
                                     </p>
                                     <div className='cardDivider' />
                                     <div className='cardFooter'>
                                         <div className='cardTags'>
-                                            <span className='cardTag'>UX</span>
-                                            <span className='cardTag'>UI</span>
                                             <span className='cardTag'>Figma</span>
+                                            <span className='cardTag'>Research</span>
+                                        
                                         </div>
                                         <span className='cardArrow' aria-hidden='true'>
                                             ↗
@@ -73,12 +73,11 @@ export default function Home() {
                                 </div>
                                 <div className='cardBody'>
                                     <div className='cardHeader'>
-                                        <h3 className='cardTitle'>Daybreak</h3>
+                                        <h3 className='cardTitle'>DayBreak</h3>
                                         <span className='cardBadge'>Case Study</span>
                                     </div>
                                     <p className='cardDescription'>
-                                        A visual system that keeps complex flows clear
-                                        and reduces cognitive load.
+                                        A multi-player horror game
                                     </p>
                                     <div className='cardDivider' />
                                     <div className='cardFooter'>
@@ -99,19 +98,16 @@ export default function Home() {
                                 </div>
                                 <div className='cardBody'>
                                     <div className='cardHeader'>
-                                        <h3 className='cardTitle'>Project Three</h3>
+                                        <h3 className='cardTitle'>Coming Soon</h3>
                                         <span className='cardBadge'>Case Study</span>
                                     </div>
                                     <p className='cardDescription'>
-                                        An end‑to‑end experience that pairs strategy
-                                        with thoughtful UI details.
+                                        Currently working on something meaningful...
                                     </p>
                                     <div className='cardDivider' />
                                     <div className='cardFooter'>
                                         <div className='cardTags'>
-                                            <span className='cardTag'>Product</span>
-                                            <span className='cardTag'>UX</span>
-                                            <span className='cardTag'>Brand</span>
+                                            <span className='cardTag'>Illustrator</span>
                                         </div>
                                         <span className='cardArrow' aria-hidden='true'>
                                             ↗

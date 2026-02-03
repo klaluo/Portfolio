@@ -3,11 +3,10 @@ export default function ProjectThree() {
         <main className='main'>
             <section className='section'>
                 <div className='container'>
-                    <h1 className='sectionTitle'>Project Three</h1>
+                    <h1 className='sectionTitle'>Coming Soon</h1>
                     <div className='sectionContent'>
                         <p className='cardDescription'>
-                            This is a placeholder page for Project Three. Add the
-                            project story, visuals, and outcomes here.
+                            Currently working on something meaningful...
                         </p>
                     </div>
                 </div>
