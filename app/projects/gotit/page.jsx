@@ -6,11 +6,11 @@ import styles from "./gotit.module.css";
 export default function GotIt() {
     const outlineSections = useMemo(
         () => [
-            { id: "insights", label: "Insights" },
-            { id: "research", label: "Research and discovery" },
-            { id: "design", label: "Design and ideation" },
-            { id: "final-product", label: "Final product" },
-            { id: "showcase", label: "Showcase" },
+            { id: "overview", label: "Overview" },
+            { id: "research", label: "Research" },
+            { id: "design", label: "Design" },
+            { id: "final-product", label: "Final Product" },
+            { id: "reflection", label: "Reflection" },
         ],
         []
     );
@@ -38,44 +38,23 @@ export default function GotIt() {
         return () => observer.disconnect();
     }, [outlineSections]);
 
+    useEffect(() => {
+        document.body.classList.add("gotit-page");
+        return () => {
+            document.body.classList.remove("gotit-page");
+        };
+    }, []);
+
     return (
-        <main className={`main ${styles.projectDetail}`}>
+        <main className={`main ${styles.projectDetail}`} id='gotit-top'>
             <section className='section'>
                 <div className={`container ${styles.projectContainer}`}>
                     <div className={styles.projectIntro}>
+                        <span className={styles.caseTag}>Case Study & Web Development</span>
                         <h1 className={styles.introTitle}>
                             Designed an AI Learning Tool That Reduced Cognitive
                             Overload for Neurodiverse Electrical Apprentices
                         </h1>
-                        <div className={styles.introGrid}>
-                            <div className={styles.introText}>
-                                <div className={styles.introBrand}>Got It</div>
-                                <p className={styles.projectSummary}>
-                                    This project focused on designing and managing the
-                                    development of an AI-powered study tool for electrical
-                                    apprentices in British Columbia, with a specific
-                                    emphasis on neurodiverse learners. As Product Owner,
-                                    Project Manager, and Lead Product Designer, I led the
-                                    project end-to-end—from defining the problem and
-                                    scoping the MVP to guiding research, design decisions,
-                                    and implementation strategy.
-                                </p>
-                                <p className={styles.projectSummary}>
-                                    The goal was to help apprentices simplify their own
-                                    study materials without sacrificing accuracy. Unlike
-                                    general AI summarization tools, this product sandboxed
-                                    the Canadian Electrical Code to ensure reliable
-                                    outputs for regulated trade content, reducing both
-                                    cognitive overload and trust issues during studying.
-                                </p>
-                            </div>
-                            <div className={styles.introMedia}>
-                                <img
-                                    src='/images/gotit-home.png'
-                                    alt='Got It interface preview'
-                                />
-                            </div>
-                        </div>
                         <div className={styles.introMeta}>
                             <div>
                                 <h3>My Role</h3>
@@ -98,19 +77,18 @@ export default function GotIt() {
                                 <p>Jira</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div className={styles.projectLayout}>
-                        <aside className={styles.projectOutline}>
-                            <p className={styles.outlineTitle}>Outline</p>
-                            <ul className={styles.outlineList}>
+                        <div className={styles.docNav}>
+                            <a className={styles.docNavIcon} href='/' aria-label='Go to home'>
+                                <img src='/images/gotit-logo.png' alt='Got It logo' />
+                            </a>
+                            <ul className={styles.docNavList}>
                                 {outlineSections.map((section) => (
                                     <li key={section.id}>
                                         <a
                                             className={
                                                 activeSection === section.id
-                                                    ? `${styles.outlineLink} ${styles.outlineLinkActive}`
-                                                    : styles.outlineLink
+                                                    ? `${styles.docNavLink} ${styles.docNavLinkActive}`
+                                                    : styles.docNavLink
                                             }
                                             href={`#${section.id}`}
                                         >
@@ -119,18 +97,83 @@ export default function GotIt() {
                                     </li>
                                 ))}
                             </ul>
-                        </aside>
+                            <a
+                                className={styles.docNavIcon}
+                                href='#gotit-top'
+                                aria-label='Back to top'
+                            >
+                                ↑
+                            </a>
+                        </div>
+                        <div className={styles.introMedia}>
+                            <img
+                                src='/images/gotit-home.png'
+                                alt='Got It interface preview'
+                                className={styles.introImagePrimary}
+                            />
+                            <img
+                                src='/images/gotit-doc.png'
+                                alt='Got It document preview'
+                                className={styles.introImageSecondary}
+                            />
+                        </div>
+                    </div>
 
-                        <div className={styles.projectContent}>
-                            <section className={styles.projectSection} id='insights'>
-                                <h2 className={styles.projectSectionTitle}>Insights</h2>
+                    <div className={styles.projectContent}>
+                        <section className={styles.overviewSection} id='overview'>
+                            <div className={styles.overviewInner}>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Overview</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
+                                <div className={styles.overviewIntro}>
+                                    <div className={styles.overviewLabel}>Got It</div>
+                                </div>
                                 <p className={styles.projectBody}>
-                                    Talk about the retention issue.
+                                    This project focused on designing and managing the
+                                    development of an AI-powered study tool for electrical
+                                    apprentices in British Columbia, with a specific
+                                    emphasis on neurodiverse learners. As Product Owner,
+                                    Project Manager, and Lead Product Designer, I led the
+                                    project end-to-end—from defining the problem and
+                                    scoping the MVP to guiding research, design decisions,
+                                    and implementation strategy.
                                 </p>
-                            </section>
+                                <p className={styles.projectBody}>
+                                    The goal was to help apprentices simplify their own
+                                    study materials without sacrificing accuracy. Unlike
+                                    general AI summarization tools, this product sandboxed
+                                    the Canadian Electrical Code to ensure reliable
+                                    outputs for regulated trade content, reducing both
+                                    cognitive overload and trust issues during studying.
+                                </p>
+                            </div>
+                        </section>
+                        <section className={styles.projectSection}>
+                            <div className={styles.sectionHeading}>
+                                <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                <h2 className={styles.sectionHeadingTitle}>Insights</h2>
+                                <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                            </div>
+                            <p className={styles.projectBody}>
+                                Apprenticeship retention is a known challenge in skilled trades.
+                                Instructors shared that many apprentices struggle to persist
+                                through training, not due to lack of ability, but because course
+                                material is dense, overwhelming, and difficult to navigate. This
+                                insight reinforced the need for learning tools that support
+                                comprehension, confidence, and sustained engagement—especially
+                                for learners who experience cognitive overload.
+                            </p>
+                        </section>
 
                             <section className={styles.projectSection} id='research'>
-                                <h2 className={styles.projectSectionTitle}>Research and discovery</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Research and Discovery</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
+                                <h3 className={styles.sectionSubheading}>Approach</h3>
                                 <p className={styles.projectBody}>
                                     As Product Owner, I defined the research direction and
                                     ensured findings directly informed product decisions.
@@ -146,10 +189,33 @@ export default function GotIt() {
                                     ensure accuracy, depth, and relevance before
                                     considering expansion to other trades.
                                 </p>
+                                {/* Example two-column findings: duplicate and fill with your content */}
+                                <div className={styles.findingsRow}>
+                                    <div className={styles.findingsCard}>
+                                        <h4 className={`${styles.findingsCardTitle} ${styles.findingsCardTitleConcerns}`}>Key concerns from survey</h4>
+                                        <ul>
+                                            <li>Dense material causes overwhelm</li>
+                                            <li>Unclear where to start studying</li>
+                                            <li>Trust in AI accuracy for code content</li>
+                                        </ul>
+                                    </div>
+                                    <div className={styles.findingsCard}>
+                                        <h4 className={`${styles.findingsCardTitle} ${styles.findingsCardTitleSolutions}`}>Possible solutions from survey</h4>
+                                        <ul>
+                                            <li>Simplified, structured summaries</li>
+                                            <li>Clear steps and priorities</li>
+                                            <li>Sandboxed to Canadian Electrical Code</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </section>
 
                             <section className={styles.projectSection}>
-                                <h2 className={styles.projectSectionTitle}>Competitive analysis</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Competitive Analysis</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
                                 <p className={styles.projectBody}>
                                     While AI tools exist to summarize information, many are
                                     not designed with neurodiverse learners in mind and
@@ -166,7 +232,11 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection}>
-                                <h2 className={styles.projectSectionTitle}>Key Findings</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Key Findings</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
                                 <div className={styles.insightCards}>
                                     <article className={styles.insightCard}>
                                         <h3>Learning & Cognitive Load</h3>
@@ -206,7 +276,11 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection} id='design'>
-                                <h2 className={styles.projectSectionTitle}>Design and Ideation</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Design and Ideation</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
                                 <p className={styles.projectBody}>
                                     As Lead Product Designer, I translated research
                                     insights into a focused MVP. Core design principles
@@ -226,7 +300,11 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection}>
-                                <h2 className={styles.projectSectionTitle}>Visual Design & Style Guide</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Visual Design & Style Guide</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
                                 <p className={styles.projectBody}>
                                     The visual system was intentionally minimal and calm,
                                     using:
@@ -245,8 +323,12 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection}>
-                                <h2 className={styles.projectSectionTitle}>Site Map</h2>
-                                <p>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Site Map</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
+                                <p className={styles.projectBody}>
                                     The Site Map was instrumental in organizing the app’s
                                     structure for clear navigation, allowing apprentices
                                     to easily access key features such as note uploads,
@@ -264,20 +346,31 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection}>
-                                <h2 className={styles.projectSectionTitle}>Merch</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Merch</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
                                 <div className={styles.placeholderPanel}>Add merch images here</div>
                             </section>
 
                             <section className={styles.projectSection} id='final-product'>
-                                <h2 className={styles.projectSectionTitle}>Final Product</h2>
+                                <div className={styles.sectionHeading}>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    <h2 className={styles.sectionHeadingTitle}>Final Product</h2>
+                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                </div>
                                 <div className={styles.placeholderPanel}>Add final product visuals here</div>
                             </section>
 
-                            <section className={styles.projectSection} id='showcase'>
-                                <h2 className={styles.projectSectionTitle}>Showcase</h2>
-                                <div className={styles.placeholderPanel}>Add showcase media here</div>
-                            </section>
-                        </div>
+                        <section className={styles.projectSection} id='reflection'>
+                            <div className={styles.sectionHeading}>
+                                <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                <h2 className={styles.sectionHeadingTitle}>Reflection</h2>
+                                <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                            </div>
+                            <div className={styles.placeholderPanel}>Add reflection notes here</div>
+                        </section>
                     </div>
                 </div>
             </section>
