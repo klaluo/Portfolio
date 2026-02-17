@@ -212,15 +212,19 @@
 
 .projectContent {
   min-width: 0;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .overviewSection {
   margin-top: 0;
   margin-bottom: 3rem;
-  background: #e6e6e6;
+  background: #ffffff;
   padding: 3.5rem 0 4rem;
-  border-top: 1px solid #d6d6d6;
-  border-bottom: 1px solid #d6d6d6;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
@@ -228,6 +232,32 @@
 .overviewInner {
   width: min(90%, 1100px);
   margin: 0 auto;
+}
+
+.overviewGotItRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.overviewGotItText {
+  min-width: 0;
+}
+
+.overviewLogoWrap {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overviewLogo {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  display: block;
 }
 
 .overviewIntro {
@@ -330,29 +360,334 @@
   margin-bottom: 1rem;
 }
 
+/* Key Findings: 2-column grid, card per reference */
 .insightCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .insightCard {
-  border: 1px solid #e6e6e6;
-  border-radius: 16px;
-  padding: 1.25rem;
-  background: #fffdf8;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .insightCard h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.75rem;
-  color: #2b2b2b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 0.875rem;
+  color: #1f1f1f;
+  border-bottom: 1px solid #ddd;
+  letter-spacing: -0.01em;
 }
 
 .insightCard ul {
-  margin-left: 1.1rem;
+  margin: 0;
+  padding: 0.75rem 0 0 1.35rem;
+  color: #1f1f1f;
+  line-height: 1.65;
+  font-size: 0.9375rem;
+  list-style-type: disc;
+}
+
+.insightCard ul li {
+  margin-bottom: 0.5rem;
+}
+
+.insightCard ul li::marker {
+  color: #1f1f1f;
+}
+
+@media (max-width: 640px) {
+  .insightCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Design and Ideation: principles block (beige) + feature cards (2-col) */
+.designPrinciplesBlock {
+  background: #f8f6f0;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.designPrinciplesBlock .projectBody,
+.designPrinciplesBlock .projectList {
+  margin-bottom: 0.75rem;
+}
+
+.designPrinciplesBlock .projectList {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.designPrinciplesBlock .projectList li {
+  margin-bottom: 0.4rem;
+}
+
+.featureCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.featureCard {
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.featureCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 0.875rem;
+  color: #1f1f1f;
+  border-bottom: 1px solid #ddd;
+  letter-spacing: -0.01em;
+}
+
+.featureCard p {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #1f1f1f;
+}
+
+@media (max-width: 640px) {
+  .featureCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Approach block: light highlight box (Research section) */
+.approachBlock {
+  background: #f8f6f0;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.approachBlock .sectionSubheading {
+  margin-top: 0;
+}
+
+.approachBlock .projectBody,
+.approachBlock .projectList {
+  margin-bottom: 0.75rem;
+}
+
+.approachBlock .projectList {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.approachBlock .projectList li {
+  margin-bottom: 0.4rem;
+}
+
+/* Competitive analysis: highlighted gaps box */
+.gapsBlock {
+  background: #f8f6f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.75rem;
+  margin: 1rem 0 2rem;
+}
+
+.gapsIntro {
+  margin: 0 0 0.5rem;
+  font-size: 0.98rem;
+  color: #2b2b2b;
+  font-weight: 500;
+}
+
+.gapsList {
+  margin: 0;
+  padding-left: 1.5rem;
   color: #5f5f5f;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.gapsList li {
+  margin-bottom: 0.35rem;
+}
+
+/* User personas: expandable cards + summary */
+.personaRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.personaCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.personaCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #ffffff;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.personaCard:hover {
+  border-color: #c8c8c8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.personaCardLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2b2b2b;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.personaCardBody {
+  padding: 1rem 1.25rem;
+  flex: 1;
+}
+
+.personaImageButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.personaImageButton:hover .personaCardImage {
+  opacity: 0.92;
+}
+
+.personaImageHint {
+  display: block;
+  font-size: 0.75rem;
+  color: #7b7b7b;
+  margin-top: 0.35rem;
+}
+
+.personaCardImagePlaceholder {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 160px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #8a8a8a;
+  margin-bottom: 0.75rem;
+}
+
+.personaCardImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+  object-fit: cover;
+}
+
+.personaCardText {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5f5f5f;
+  line-height: 1.5;
+}
+
+/* Lightbox: click image to view full size */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+  overflow: auto;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lightboxImage {
+  width: auto;
+  height: auto;
+  max-width: 285vw;
+  max-height: 270vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.personaSummary {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5f5f5f;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .personaRow {
+    grid-template-columns: 1fr;
+  }
+
+  .personaSummary {
+    order: 1;
+  }
+
+  .personaCards {
+    order: 2;
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Two-column findings cards (e.g. Key concerns | Possible solutions) */
@@ -364,19 +699,35 @@
 }
 
 .findingsCard {
-  border: 1px solid #e6e6e6;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
-  background: #fffdf8;
+  background: #ffffff;
 }
 
 .findingsCardTitle {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
+  padding-bottom: 0.75rem;
   line-height: 1.3;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.findingsCard ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  color: #1f1f1f;
+  line-height: 1.55;
+  font-size: 0.85rem;
+  list-style-type: disc;
+}
+
+.findingsCard ul li {
+  margin-bottom: 0.35rem;
 }
 
 .findingsCardTitleConcerns {
@@ -385,14 +736,6 @@
 
 .findingsCardTitleSolutions {
   color: #2d7a4a;
-}
-
-.findingsCard ul {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: #5f5f5f;
-  line-height: 1.65;
-  font-size: 0.98rem;
 }
 
 @media (max-width: 640px) {
@@ -423,6 +766,23 @@
   height: auto;
   display: block;
   border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .overviewGotItRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .overviewLogoWrap {
+    order: -1;
+    justify-self: center;
+  }
+
+  .overviewLogo {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 @media (max-width: 900px) {
