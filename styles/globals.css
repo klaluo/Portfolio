@@ -75,6 +75,11 @@ a:hover {
   padding: 0 0.75rem;
 }
 
+.gotit-page .nav {
+  position: static;
+  margin-top: 1.25rem;
+}
+
 .navPill {
   display: flex;
   align-items: center;
