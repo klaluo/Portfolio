@@ -50,25 +50,34 @@ a:hover {
 }
 
 .container {
-  max-width: 1400px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 3vw;
 }
 
 /* Navigation */
 .nav {
   position: fixed;
-  top: 0;
+  top: 1.25rem;
   left: 0;
   right: 0;
   z-index: 1000;
   padding: 0.7rem 0;
   background: transparent;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.nav .container {
+.nav  {
   max-width: 980px;
   padding: 0 0.75rem;
+}
+
+.gotit-page .nav {
+  position: static;
+  margin-top: 1.25rem;
 }
 
 .navPill {
