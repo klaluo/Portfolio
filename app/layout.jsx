@@ -5,6 +5,10 @@ import Footer from "../components/Footer";
 export const metadata = {
     title: "Kayla Luo",
     description: "My personal portfolio website",
+    icons: {
+        icon: "/favicon.svg",
+        shortcut: "/favicon.svg",
+    },
 };
 
 export default function RootLayout({ children }) {
