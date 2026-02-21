@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Lanyard from "../components/Lanyard";
+import ProjectShowcaseCard from "../components/ProjectShowcaseCard";
+
+const featuredProjects = [
+    { companyName: "Got It", title: "An AI study tool for neurodiverse electrical apprentices", tags: ["Case Study", "Figma", "Research", "Product Design"], href: "/projects/gotit" },
+    { companyName: "DayBreak", title: "A multi-player horror game", tags: ["Case Study", "Research", "Design", "Prototype"], href: "/projects/daybreak" },
+    { companyName: "", title: "Coming Soon", tags: ["Illustrator"], href: "/projects/project-3" },
+];
 
 export default function Home() {
     return (
@@ -40,81 +47,17 @@ export default function Home() {
                 <section className='section' id='featured-work'>
                     <div className='container'>
                         <h2 className='sectionTitle'>Featured Work</h2>
-                        <div className='grid'>
-                            <Link href='/projects/gotit' className='card cardTemplate'>
-                                <div className='cardMedia'>
-                                    <div className='cardMediaInner' />
-                                </div>
-                                <div className='cardBody'>
-                                    <div className='cardHeader'>
-                                        <h3 className='cardTitle'>Got It</h3>
-                                        <span className='cardBadge'>Case Study</span>
-                                    </div>
-                                    <p className='cardDescription'>
-                                        An AI powered study tool designed for neurodiverse
-                                        electrical apprentices in BC.
-                                    </p>
-                                    <div className='cardDivider' />
-                                    <div className='cardFooter'>
-                                        <div className='cardTags'>
-                                            <span className='cardTag'>Figma</span>
-                                            <span className='cardTag'>Research</span>
-                                        
-                                        </div>
-                                        <span className='cardArrow' aria-hidden='true'>
-                                            ↗
-                                        </span>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link href='/projects/daybreak' className='card cardTemplate'>
-                                <div className='cardMedia'>
-                                    <div className='cardMediaInner' />
-                                </div>
-                                <div className='cardBody'>
-                                    <div className='cardHeader'>
-                                        <h3 className='cardTitle'>DayBreak</h3>
-                                        <span className='cardBadge'>Case Study</span>
-                                    </div>
-                                    <p className='cardDescription'>
-                                        A multi-player horror game
-                                    </p>
-                                    <div className='cardDivider' />
-                                    <div className='cardFooter'>
-                                        <div className='cardTags'>
-                                            <span className='cardTag'>Research</span>
-                                            <span className='cardTag'>Design</span>
-                                            <span className='cardTag'>Prototype</span>
-                                        </div>
-                                        <span className='cardArrow' aria-hidden='true'>
-                                            ↗
-                                        </span>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link href='/projects/project-3' className='card cardTemplate'>
-                                <div className='cardMedia'>
-                                    <div className='cardMediaInner' />
-                                </div>
-                                <div className='cardBody'>
-                                    <div className='cardHeader'>
-                                        <h3 className='cardTitle'>Coming Soon</h3>
-                                        <span className='cardBadge'>Case Study</span>
-                                    </div>
-                                    <p className='cardDescription'>
-                                        Currently working on something meaningful...
-                                    </p>
-                                    <div className='cardDivider' />
-                                    <div className='cardFooter'>
-                                        <div className='cardTags'>
-                                            <span className='cardTag'>Illustrator</span>
-                                        </div>
-                                        <span className='cardArrow' aria-hidden='true'>
-                                            ↗
-                                        </span>
-                                    </div>
-                                </div>
-                            </Link>
+                        <div className='showcaseList'>
+                            {featuredProjects.map((project, i) => (
+                                <ProjectShowcaseCard
+                                    key={i}
+                                    companyName={project.companyName || undefined}
+                                    title={project.title}
+                                    tags={project.tags}
+                                    href={project.href}
+                                    imageOnLeft={i % 2 === 1}
+                                />
+                            ))}
                         </div>
                     </div>
                 </section>
