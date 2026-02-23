@@ -11,7 +11,7 @@ export default function Error({ error, reset }) {
             padding: "2rem",
             textAlign: "center",
         }}>
-            <h2 style={{ marginBottom: "1rem", fontSize: "1.25rem" }}>Something went wrong</h2>
+            <h2 style={{ marginBottom: "1rem", fontSize: "1.25rem" }}>Oops!Something went wrong</h2>
             <button
                 onClick={() => reset()}
                 style={{
