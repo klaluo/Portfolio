@@ -29,6 +29,7 @@ export default function Lanyard({
         () => typeof window !== "undefined" && window.innerWidth < 768
     );
     const [assetsReady, setAssetsReady] = useState(null);
+    const resolvedRef = useRef(false);
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -38,20 +39,33 @@ export default function Lanyard({
 
     useEffect(() => {
         let active = true;
+        const timeout = setTimeout(() => {
+            if (active && !resolvedRef.current) {
+                setAssetsReady(false);
+            }
+        }, 4000);
+
         Promise.all([
             fetch(CARD_GLB, { method: "HEAD" }),
             fetch(LANYARD_TEXTURE, { method: "HEAD" }),
         ])
             .then((responses) => responses.every((response) => response.ok))
             .then((ok) => {
-                if (active) setAssetsReady(ok);
+                if (active) {
+                    resolvedRef.current = true;
+                    setAssetsReady(ok);
+                }
             })
             .catch(() => {
-                if (active) setAssetsReady(false);
+                if (active) {
+                    resolvedRef.current = true;
+                    setAssetsReady(false);
+                }
             });
 
         return () => {
             active = false;
+            clearTimeout(timeout);
         };
     }, []);
 
