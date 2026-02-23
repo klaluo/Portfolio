@@ -1,6 +1,15 @@
 import Link from "next/link";
-import Lanyard from "../components/Lanyard";
+import dynamic from "next/dynamic";
 import ProjectShowcaseCard from "../components/ProjectShowcaseCard";
+
+const Lanyard = dynamic(() => import("../components/Lanyard"), {
+    ssr: false,
+    loading: () => (
+        <div className="lanyard-wrapper lanyard-placeholder" style={{ minHeight: 380 }}>
+            <span style={{ color: "rgba(0,0,0,0.4)" }}>Loading…</span>
+        </div>
+    ),
+});
 
 const featuredProjects = [
     { companyName: "Got It", title: "An AI study tool for neurodiverse electrical apprentices", tags: ["Case Study", "Figma", "Research", "Product Design"], href: "/projects/gotit" },
