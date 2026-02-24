@@ -618,9 +618,12 @@ a:hover {
 .showcaseCard {
   display: flex;
   align-items: stretch;
-  min-height: 420px;
-  background: var(--bg-dark);
-  border-radius: 18px;
+  width: 100%;
+  max-width: 1500px;
+  height: 570px;
+  min-height: 496px;
+  background: #f7f7f7;
+  border-radius: 20px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid #e6e6e6;
   overflow: hidden;
@@ -640,32 +643,34 @@ a:hover {
 }
 
 .showcaseCardLeft {
-  flex: 0 0 42%;
-  padding: 2rem 2.25rem;
+  flex: 0 0 40%;
+  padding: 2rem 2.25rem 2.25rem 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  background: #fff;
 }
 
 .showcaseCompany {
   font-size: 0.875rem;
   color: var(--text-light);
   font-weight: 500;
+  padding-bottom: 0.5rem;
 }
 
 .showcaseTitle {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
-  line-height: 1.25;
-  margin: 0;
+  line-height: 1.2;
+  margin-bottom: 2rem;
 }
 
 .showcaseTags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .showcaseTag {
@@ -678,18 +683,38 @@ a:hover {
   font-weight: 500;
 }
 
+.showcaseTagOutline {
+  background: transparent;
+  color: #333;
+  border: 1px solid #333;
+}
+
+.showcaseToolIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.showcaseToolIcon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
 .showcaseButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: auto;
   width: fit-content;
   padding: 0.65rem 1.35rem;
   background: #1f1f1f;
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 999px;
   transition: background 0.2s ease;
 }
 
@@ -703,15 +728,26 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f5f5;
-  padding: 1.5rem;
+  background: #ffffff;
+  padding: 1.75rem 2rem;
+}
+
+.showcaseImageFrame {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background: #f1f1f1;
+  padding: 1.5rem 1.75rem 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .showcasePlaceholder {
   width: 100%;
   height: 100%;
-  min-height: 340px;
-  border-radius: 12px;
+  min-height: 0;
+  border-radius: 14px;
   background: #e8e8e8;
   display: flex;
   align-items: center;
@@ -722,23 +758,31 @@ a:hover {
 
 .showcaseImage {
   width: 100%;
-  height: 100%;
-  min-height: 340px;
-  object-fit: cover;
-  border-radius: 12px;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius:20px;
 }
 
 .showcaseList {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
   margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
+  .showcaseList {
+    align-items: stretch;
+  }
+
   .showcaseCard {
     flex-direction: column;
+    height: auto;
     min-height: auto;
+    max-width: none;
   }
 
   .showcaseCardLeft {
@@ -751,8 +795,7 @@ a:hover {
     padding: 1.25rem;
   }
 
-  .showcasePlaceholder,
-  .showcaseImage {
+  .showcaseImageFrame {
     min-height: 240px;
   }
 }

@@ -17,8 +17,16 @@ const Lanyard = dynamic(() => import("../components/Lanyard"), {
 const featuredProjects = [
     {
         companyName: "Got It",
-        title: "An AI study tool for neurodiverse electrical apprentices",
-        tags: ["Case Study", "Figma", "Research", "Product Design"],
+        title: "Designed an AI Learning Tool That Reduced Cognitive Overload for Neurodiverse Electrical Apprentices.",
+        tags: ["Lead Product Designer", "Co Product Owner"],
+        tagVariant: "outline",
+        toolIcons: [
+            { src: "/images/figma.png", alt: "Figma" },
+            { src: "/images/jira.png", alt: "Jira" },
+            { src: "/images/illustrator.png", alt: "Adobe Illustrator" },
+        ],
+        imageSrc: "/images/gotit-dashboard.jpg",
+        imageAlt: "Got It dashboard",
         href: "/projects/gotit",
     },
     {
@@ -103,8 +111,12 @@ export default function Home() {
                                     }
                                     title={project.title}
                                     tags={project.tags}
+                                    tagVariant={project.tagVariant}
+                                    toolIcons={project.toolIcons}
                                     href={project.href}
                                     imageOnLeft={i % 2 === 1}
+                                    imageSrc={project.imageSrc}
+                                    imageAlt={project.imageAlt}
                                 />
                             ))}
                         </div>
