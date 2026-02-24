@@ -5,16 +5,34 @@ import ProjectShowcaseCard from "../components/ProjectShowcaseCard";
 const Lanyard = dynamic(() => import("../components/Lanyard"), {
     ssr: false,
     loading: () => (
-        <div className="lanyard-wrapper lanyard-placeholder" style={{ minHeight: 380 }}>
+        <div
+            className='lanyard-wrapper lanyard-placeholder'
+            style={{ minHeight: 380 }}
+        >
             <span style={{ color: "rgba(0,0,0,0.4)" }}>Loading…</span>
         </div>
     ),
 });
 
 const featuredProjects = [
-    { companyName: "Got It", title: "An AI study tool for neurodiverse electrical apprentices", tags: ["Case Study", "Figma", "Research", "Product Design"], href: "/projects/gotit" },
-    { companyName: "DayBreak", title: "A multi-player horror game", tags: ["Case Study", "Research", "Design", "Prototype"], href: "/projects/daybreak" },
-    { companyName: "", title: "Coming Soon", tags: ["Illustrator"], href: "/projects/project-3" },
+    {
+        companyName: "Got It",
+        title: "An AI study tool for neurodiverse electrical apprentices",
+        tags: ["Case Study", "Figma", "Research", "Product Design"],
+        href: "/projects/gotit",
+    },
+    {
+        companyName: "DayBreak",
+        title: "A multi-player horror game",
+        tags: ["Case Study", "Research", "Design", "Prototype"],
+        href: "/projects/daybreak",
+    },
+    {
+        companyName: "",
+        title: "Coming Soon",
+        tags: ["Illustrator"],
+        href: "/projects/project-3",
+    },
 ];
 
 export default function Home() {
@@ -25,20 +43,30 @@ export default function Home() {
                     <div className='heroContent'>
                         <span className='heroBadge'>Hey! I’m Kayla,</span>
                         <h1 className='heroTitle'>
-                            a Strategic Empath who simplifies complexity and
-                            humanizes technology
+                            <span className='heroTitleMuted'>a </span>
+                            <span className='heroTitleBold'>
+                                Strategic Empath
+                            </span>
+                            <span className='heroTitleMuted'>
+                                {" "}
+                                who designs for
+                            </span>
+                            <br />
+                            <span className='heroTitleBold'>
+                                people, not screens.
+                            </span>
                         </h1>
                         <p className='heroSubtitle'>
                             I combine UX strategy and thoughtful UI to create
-                            experiences that help people get things done clearly and
-                            efficiently.
+                            experiences that help people get things done clearly
+                            and efficiently.
                         </p>
                         <div className='heroActions'>
                             <Link href='/contact' className='heroPrimaryButton'>
                                 Contact
                             </Link>
                             <Link
-                                href='https://linkedin.com'
+                                href='https://www.linkedin.com/in/kayla-luo/'
                                 className='heroGhostButton'
                             >
                                 LinkedIn
@@ -47,9 +75,19 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='heroLanyardColumn' aria-hidden='true'>
-                        <Lanyard />
+                        <Lanyard fov={10} />
                     </div>
                 </div>
+                <a
+                    href='#featured-work'
+                    className='scrollDownButton'
+                    aria-label='Scroll to featured work'
+                >
+                    <span className='scrollDownButton-icon' aria-hidden='true'>
+                        <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><path d='M7 13l5 5 5-5M7 6l5 5 5-5'/></svg>
+                    </span>
+                    <span className='scrollDownButton-text'>Scroll</span>
+                </a>
             </section>
 
             <main className='main'>
@@ -60,7 +98,9 @@ export default function Home() {
                             {featuredProjects.map((project, i) => (
                                 <ProjectShowcaseCard
                                     key={i}
-                                    companyName={project.companyName || undefined}
+                                    companyName={
+                                        project.companyName || undefined
+                                    }
                                     title={project.title}
                                     tags={project.tags}
                                     href={project.href}
