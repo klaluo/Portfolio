@@ -358,13 +358,13 @@ export default function GotIt() {
 
                             <section className={styles.projectSection}>
                                 <div className={styles.sectionHeading}>
-                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
-                                    <h2 className={styles.sectionHeadingTitle}>Key Findings</h2>
-                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
+                                    
+                                    <h3 className={styles.sectionSubheading}>Key Findings</h3>
+                    
                                 </div>
                                 <div className={styles.insightCards}>
                                     <article className={styles.insightCard}>
-                                        <h3>Learning & Cognitive Load</h3>
+                                        <h>Learning & Cognitive Load</h>
                                         <ul>
                                             <li>6/8 participants reported a learning disability (ADHD, dyslexia, or self-identified)</li>
                                             <li>All participants with learning disabilities struggled with textbook-based learning</li>
@@ -454,7 +454,7 @@ export default function GotIt() {
                                     comparison. Since all surveyed apprentices study on laptops, we chose
                                     a web-based platform to match their workflow.
                                 </p>
-                                <div className={styles.projectImageCard}>
+                                <div className={styles.projectImageSiteMap}>
                                     <img
                                         src='/images/gotit-sitemap.png'
                                         alt='GotIt sitemap'

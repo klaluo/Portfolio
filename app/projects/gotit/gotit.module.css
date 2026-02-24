@@ -1,6 +1,6 @@
 .projectDetail {
   padding-top: 5rem;
-  background-color: #f6f2ec;
+  background-color:#fff9f2;
   background-image: radial-gradient(rgba(0, 0, 0, 0.08) 0.6px, transparent 0.6px);
   background-size: 18px 18px;
 }
@@ -36,11 +36,11 @@
 }
 
 .introTitle {
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 1.25;
   color: #1f1f1f;
   margin-bottom: 2rem;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Mona Sans', 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu',sans-serif;
 }
 
 .introBrand {
@@ -221,7 +221,7 @@
 .overviewSection {
   margin-top: 0;
   margin-bottom: 3rem;
-  background: #ffffff;
+  background: #FFF9F2;
   padding: 3.5rem 0 4rem;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
@@ -232,6 +232,7 @@
 .overviewInner {
   width: min(90%, 1100px);
   margin: 0 auto;
+  
 }
 
 .overviewGotItRow {
@@ -347,7 +348,7 @@
 }
 
 .projectBody {
-  color: #5f5f5f;
+  color: #000000;
   font-size: 1.02rem;
   line-height: 1.75;
   margin-bottom: 1rem;
@@ -355,7 +356,7 @@
 
 .projectList {
   margin-left: 1.25rem;
-  color: #4f4f4f;
+  color: #151515;
   line-height: 1.7;
   margin-bottom: 1rem;
 }
@@ -369,7 +370,7 @@
 }
 
 .insightCard {
-  background: #f5f5f5;
+  background: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
@@ -411,7 +412,7 @@
 
 /* Design and Ideation: principles block (beige) + feature cards (2-col) */
 .designPrinciplesBlock {
-  background: #f8f6f0;
+  background: #ffffff;
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
   margin-bottom: 2rem;
@@ -439,7 +440,7 @@
 }
 
 .featureCard {
-  background: #f5f5f5;
+  background: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
@@ -471,7 +472,7 @@
 
 /* Approach block: light highlight box (Research section) */
 .approachBlock {
-  background: #f8f6f0;
+  background: #ffffff;
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
   margin-bottom: 2rem;
@@ -497,7 +498,7 @@
 
 /* Competitive analysis: highlighted gaps box */
 .gapsBlock {
-  background: #f8f6f0;
+  background: #ffffff;
   border-radius: 12px;
   padding: 1.25rem 1.75rem;
   margin: 1rem 0 2rem;
@@ -513,7 +514,7 @@
 .gapsList {
   margin: 0;
   padding-left: 1.5rem;
-  color: #5f5f5f;
+  color: #000000;
   font-size: 0.95rem;
   line-height: 1.7;
 }
@@ -759,6 +760,23 @@
   padding: 1.5rem;
   background: white;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.projectImageSiteMap {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  max-width: 850px;
+  margin-inline: auto;
+}
+
+.projectImageSiteMap img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .projectImageCard img {
