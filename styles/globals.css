@@ -159,16 +159,15 @@ a:hover {
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: left;
-  padding: 8rem 0 5rem;
+  padding: 0;
   background-color: var(--bg);
   background-image: radial-gradient(rgba(0, 0, 0, 0.172) 0.8px, transparent 1.4px);
   background-size: 42px 42px;
   color: #2b2b2b;
+  overflow: visible;
 }
 
 .hero::before {
@@ -199,26 +198,20 @@ a:hover {
 
 .heroLayout {
   display: grid;
-  grid-template-columns: minmax(420px, 1.3fr) minmax(380px, 560px);
-  align-items: start;
-  gap: 3rem;
-  position: relative;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 3vw;
 }
 
 .heroLanyardColumn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: min(520px, 45vw);
-  height: min(520px, 80vh);
-  min-height: 380px;
+  height: 100vh;
   display: flex;
-  justify-content: flex-end;
   align-items: flex-start;
-  pointer-events: none;
-  z-index: 50;
-  margin: 0;
-  padding: 0;
+  overflow: visible;
 }
 
 .hero .heroLanyardColumn .lanyard-wrapper {
@@ -257,6 +250,22 @@ a:hover {
   font-weight: 700;
   line-height: 1.25;
   color: #323232;
+}
+.heroTitleMuted {
+  color: #6b6b6b;
+  font-weight: 600;
+}
+
+.heroTitleBold {
+  color: #323232;
+  font-weight: 700;
+}
+
+.heroTitleBold:first-of-type {
+  text-decoration: underline;
+  text-decoration-color: #f46b1a;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
 }
 
 .heroTitleHighlight {
@@ -410,6 +419,51 @@ a:hover {
   background: var(--accent-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+/* Scroll down button – centered at bottom of hero */
+.scrollDownButton {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.scrollDownButton:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.scrollDownButton-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+.scrollDownButton-text {
+  letter-spacing: 0.02em;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
 }
 
 /* Main */
