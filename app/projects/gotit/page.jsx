@@ -394,14 +394,10 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection}>
-                                <div className={styles.sectionHeading}>
-                                    
-                                    <h3 className={styles.sectionSubheading}>Key Findings</h3>
-                    
-                                </div>
+                                <h3 className={styles.sectionSubheading}>Key Findings</h3>
                                 <div className={styles.insightCards}>
                                     <article className={styles.insightCard}>
-                                        <h>Learning & Cognitive Load</h>
+                                        <h4>Learning & Cognitive Load</h4>
                                         <ul>
                                             <li>6/8 participants reported a learning disability (ADHD, dyslexia, or self-identified)</li>
                                             <li>All participants with learning disabilities struggled with textbook-based learning</li>
@@ -410,7 +406,7 @@ export default function GotIt() {
                                         </ul>
                                     </article>
                                     <article className={styles.insightCard}>
-                                        <h3>Studying & Organization</h3>
+                                        <h4>Studying & Organization</h4>
                                         <ul>
                                             <li>All participants feel unsure where to start when studying</li>
                                             <li>Most struggle to organize information across manuals, worksheets, and notes</li>
@@ -418,7 +414,7 @@ export default function GotIt() {
                                         </ul>
                                     </article>
                                     <article className={styles.insightCard}>
-                                        <h3>Content Challenges</h3>
+                                        <h4>Content Challenges</h4>
                                         <ul>
                                             <li>Math and the Canadian Electrical Code are the most difficult topics</li>
                                             <li>Large blocks of small text, jargon, acronyms, and technical language cause cognitive overload</li>
@@ -426,7 +422,7 @@ export default function GotIt() {
                                         </ul>
                                     </article>
                                     <article className={styles.insightCard}>
-                                        <h3>Existing Workarounds</h3>
+                                        <h4>Existing Workarounds</h4>
                                         <ul>
                                             <li>Breaking down text manually</li>
                                             <li>Highlighting and rewriting notes</li>
@@ -464,23 +460,23 @@ export default function GotIt() {
                                 <h3 className={styles.sectionSubheading}>4 key features to address user pain points (based on survey results)</h3>
                                 <div className={styles.featureCards}>
                                     <article className={styles.featureCard}>
-                                        <h3>Upload or Select Material</h3>
+                                        <h4>Upload or Select Material</h4>
                                         <p>Upload your own notes or pick a built-in textbook. Everything stays accurate because AI only uses the CEC.</p>
                                     </article>
                                     <article className={styles.featureCard}>
-                                        <h3>Simplify or Summarize</h3>
+                                        <h4>Simplify or Summarize</h4>
                                         <p>Turn dense text into easy-to-read versions or quick summaries.</p>
                                     </article>
                                     <article className={styles.featureCard}>
-                                        <h3>Generate a Mind Map</h3>
+                                        <h4>Generate a Mind Map</h4>
                                         <p>See content visually and plan your study around your exam date.</p>
                                     </article>
                                     <article className={styles.featureCard}>
-                                        <h3>Personalized Study Guide</h3>
+                                        <h4>Personalized Study Guide</h4>
                                         <p>Helps students know where to start by breaking content into clear, digestible sections.</p>
                                     </article>
                                     <article className={styles.featureCard}>
-                                        <h3>Dual View</h3>
+                                        <h4>Dual View</h4>
                                         <p>Compare original and simplified text side by side.</p>
                                     </article>
                                 </div>
@@ -500,11 +496,7 @@ export default function GotIt() {
                             </section>
 
                             <section className={styles.projectSection}>
-                                <div className={styles.sectionHeading}>
-                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
-                                    <h2 className={styles.sectionHeadingTitle}>Visual Design & Style Guide</h2>
-                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
-                                </div>
+                                <h3 className={styles.sectionSubheading}>Visual Design & Style Guide</h3>
                                 <p className={styles.projectBody}>
                                     The visual system was intentionally minimal and calm,
                                     using:
@@ -523,15 +515,6 @@ export default function GotIt() {
                             </section>
 
 
-                            <section className={styles.projectSection}>
-                                <div className={styles.sectionHeading}>
-                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
-                                    <h2 className={styles.sectionHeadingTitle}>Merch</h2>
-                                    <div className={styles.sectionHeadingLine} aria-hidden='true' />
-                                </div>
-                                <div className={styles.placeholderPanel}>Add merch images here</div>
-                            </section>
-
                             <section className={styles.projectSection} id='final-product'>
                                 <div className={styles.sectionHeading}>
                                     <div className={styles.sectionHeadingLine} aria-hidden='true' />
@@ -539,6 +522,8 @@ export default function GotIt() {
                                     <div className={styles.sectionHeadingLine} aria-hidden='true' />
                                 </div>
                                 <div className={styles.placeholderPanel}>Add final product visuals here</div>
+                                <h3 className={styles.sectionSubheading}>Promotional Materials</h3>
+                                <div className={styles.placeholderPanel}>Add merch images here</div>
                             </section>
 
                         <section className={styles.projectSection} id='reflection'>

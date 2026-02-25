@@ -349,13 +349,14 @@
   white-space: nowrap;
 }
 
-/* Left-aligned subheading (bigger than body, slightly bold) */
+/* Left-aligned subheading (bigger than body, consistent weight) */
 .sectionSubheading {
   font-size: 1.15rem;
   font-weight: 600;
   color: #2b2b2b;
   margin: 1.5rem 0 0.6rem;
   line-height: 1.4;
+  text-align: left;
 }
 
 .sectionSubheading:first-of-type {
@@ -400,9 +401,9 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.insightCard h3 {
+.insightCard h4 {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   padding-bottom: 0.875rem;
   color: #1f1f1f;
@@ -470,9 +471,9 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.featureCard h3 {
+.featureCard h4 {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   padding-bottom: 0.875rem;
   color: #1f1f1f;
