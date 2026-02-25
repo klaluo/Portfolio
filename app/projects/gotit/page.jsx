@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./gotit.module.css";
+
+const MAIN_NAV_OFFSET_PX = 88; /* 5.5rem – matches main navbar height */
 
 export default function GotIt() {
     const outlineSections = useMemo(
@@ -16,6 +18,8 @@ export default function GotIt() {
     );
     const [activeSection, setActiveSection] = useState(outlineSections[0]?.id);
     const [lightboxImage, setLightboxImage] = useState(null);
+    const [isDocNavFixed, setIsDocNavFixed] = useState(false);
+    const docNavSentinelRef = useRef(null);
 
     useEffect(() => {
         const targets = outlineSections
@@ -43,6 +47,26 @@ export default function GotIt() {
         document.body.classList.add("gotit-page");
         return () => {
             document.body.classList.remove("gotit-page");
+        };
+    }, []);
+
+    useEffect(() => {
+        const wrapper = docNavSentinelRef.current?.parentElement;
+        if (!wrapper) return;
+
+        const checkStick = () => {
+            const sentinel = docNavSentinelRef.current;
+            if (!sentinel) return;
+            const top = sentinel.getBoundingClientRect().top;
+            setIsDocNavFixed(top <= MAIN_NAV_OFFSET_PX);
+        };
+
+        checkStick();
+        window.addEventListener("scroll", checkStick, { passive: true });
+        window.addEventListener("resize", checkStick);
+        return () => {
+            window.removeEventListener("scroll", checkStick);
+            window.removeEventListener("resize", checkStick);
         };
     }, []);
 
@@ -91,9 +115,23 @@ export default function GotIt() {
                                 <p>Jira</p>
                             </div>
                         </div>
-                        <div className={styles.docNav}>
+                    </div>
+
+                    <div className={styles.docNavStickyWrapper}>
+                        <div
+                            ref={docNavSentinelRef}
+                            className={styles.docNavSentinel}
+                            aria-hidden="true"
+                        />
+                        <div
+                            className={
+                                isDocNavFixed
+                                    ? `${styles.docNav} ${styles.docNavFixed}`
+                                    : styles.docNav
+                            }
+                        >
                             <a className={styles.docNavIcon} href='/' aria-label='Go to home'>
-                                <img src='/images/gotit-logo.png' alt='Got It logo' />
+                                <img src='/images/gotit-logo-round.png' alt='Got It logo' />
                             </a>
                             <ul className={styles.docNavList}>
                                 {outlineSections.map((section) => (
@@ -119,6 +157,7 @@ export default function GotIt() {
                                 ↑
                             </a>
                         </div>
+                        {isDocNavFixed && <div className={styles.docNavSpacer} />}
                         <div className={styles.introMedia}>
                             <img
                                 src='/images/gotit-home.png'
@@ -131,9 +170,7 @@ export default function GotIt() {
                                 className={styles.introImageSecondary}
                             />
                         </div>
-                    </div>
-
-                    <div className={styles.projectContent}>
+                        <div className={styles.projectContent}>
                         <section className={styles.overviewSection} id='overview'>
                             <div className={styles.overviewInner}>
                                 <div className={styles.sectionHeading}>
@@ -539,6 +576,7 @@ export default function GotIt() {
                                 creativity when building meaningful, user-centered products.
                             </p>
                         </section>
+                        </div>
                     </div>
                 </div>
             </section>

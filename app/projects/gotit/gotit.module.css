@@ -14,10 +14,26 @@
 }
 
 .projectIntro {
-  margin-bottom: 4rem;
-  border-bottom: 1px dashed #d9d9d9;
+  margin-bottom: 0;
   padding-bottom: 2.5rem;
   text-align: center;
+}
+
+.docNavStickyWrapper {
+  margin-bottom: 4rem;
+}
+
+.docNavSentinel {
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.docNavSpacer {
+  height: calc(60px + 2.5rem);
+  flex-shrink: 0;
 }
 
 .caseTag {
@@ -27,12 +43,9 @@
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6f6f6f;
-  border: 1px solid #d6d6d6;
-  border-radius: 999px;
-  padding: 0.4rem 0.9rem;
-  background: #efefef;
+  color: #FFC358;
   margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .introTitle {
@@ -51,35 +64,48 @@
 
 .docNav {
   position: sticky;
-  top: 1.25rem;
+  top: 5.5rem;
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  border: 1px solid #dedede;
-  border-radius: 999px;
-  padding: 0.55rem 0.9rem;
-  background: #efefef;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  gap: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 30px;
+  padding: 0.75rem 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   max-width: 820px;
   margin: 0 auto 2.5rem;
+  max-height: 53px;
+}
+
+.docNavFixed {
+  position: fixed;
+  top: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 820px;
+  margin: 0;
+  z-index: 20;
 }
 
 .docNavIcon {
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  border: 1px solid #d6d6d6;
-  background: #f4f0e8;
+  border: none;
+  background: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #4a4a4a;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 600;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .docNavIcon img {
@@ -89,54 +115,51 @@
   display: block;
 }
 
-.docNavIcon::after {
+.docNavIcon:first-child::after {
   content: "";
   position: absolute;
-  right: -16px;
+  right: -14px;
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: #d6d6d6;
-}
-
-.docNavIcon:last-child::after {
-  display: none;
+  background: #e0e0e0;
 }
 
 .docNavIcon:last-child::before {
   content: "";
   position: absolute;
-  left: -16px;
+  left: -14px;
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: #d6d6d6;
+  background: #e0e0e0;
 }
 
 .docNavList {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #7b7b7b;
+  color: #9a9a9a;
+  font-weight: 600;
 }
 
 .docNavLink {
   text-decoration: none;
   color: inherit;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.35rem;
   border-bottom: 2px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .docNavLinkActive {
-  color: #3a3a3a;
-  border-bottom-color: #3a3a3a;
+  color: #666666;
+  border-bottom-color: #666666;
 }
 
 .introMedia {
