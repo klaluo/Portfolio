@@ -55,13 +55,14 @@ export default function Home() {
                             <span className='heroTitleBold'>
                                 Strategic Empath
                             </span>
-                            <span className='heroTitleMuted'>
+                            <span className='heroTitleMuted'> who</span>
+                            <span className='heroTitleBold'>
                                 {" "}
-                                who designs for
+                                designs for people,
                             </span>
                             <br />
-                            <span className='heroTitleBold'>
-                                people, not screens.
+                            <span className='heroTitleMuted'>
+                                not screens.
                             </span>
                         </h1>
                         <p className='heroSubtitle'>
