@@ -64,7 +64,7 @@ a:hover {
   right: 0;
   width: 100%;
   z-index: 1000;
-  padding: 0.75rem 0;
+  padding: 0.30rem 0;
   background: rgba(255, 249, 242, 0.242);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -76,6 +76,7 @@ a:hover {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+
   padding: 0 3vw;
   display: flex;
   align-items: center;
@@ -112,7 +113,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 3rem;
+  padding: 0.50rem 3rem;
   min-width: 600px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.549);
