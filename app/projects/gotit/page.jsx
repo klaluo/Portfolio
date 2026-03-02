@@ -514,6 +514,27 @@ export default function GotIt() {
                                 </p>
                             </section>
 
+                            <section className={styles.projectSection}>
+                                <h3 className={styles.sectionSubheading}>Wireframes</h3>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        marginTop: "2rem",
+                                    }}
+                                >
+                                    <iframe
+                                        style={{
+                                            border: "1px solid rgba(0, 0, 0, 0.1)",
+                                        }}
+                                        width='800'
+                                        height='450'
+                                        src='https://embed.figma.com/design/ZehM4zoUzKhYDgKwGjWggV/Got-It---TradeAccess?node-id=3950-10678&embed-host=share'
+                                        allowFullScreen
+                                    />
+                                </div>
+                            </section>
+
 
                             <section className={styles.projectSection} id='final-product'>
                                 <div className={styles.sectionHeading}>
