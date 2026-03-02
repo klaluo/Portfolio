@@ -71,9 +71,12 @@ export default function Home() {
                             and efficiently.
                         </p>
                         <div className='heroActions'>
-                            <Link href='/contact' className='heroPrimaryButton'>
+                            <a
+                                href='mailto:kaylaluoo@gmail.com'
+                                className='heroPrimaryButton'
+                            >
                                 Contact
-                            </Link>
+                            </a>
                             <Link
                                 href='https://www.linkedin.com/in/kayla-luo/'
                                 className='heroGhostButton'

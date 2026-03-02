@@ -28,7 +28,9 @@ export default function Contact() {
                             >
                                 <h3 className='cardTitle'>Email</h3>
                                 <p className='cardDescription'>
-                                    hello@yourname.com
+                                    <a href='mailto:kaylaluoo@gmail.com'>
+                                        kaylaluoo@gmail.com
+                                    </a>
                                 </p>
                             </div>
                             <div
