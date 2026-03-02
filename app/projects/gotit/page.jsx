@@ -185,8 +185,8 @@ export default function GotIt() {
                                             This project focused on designing and managing the
                                             development of an AI-powered study tool for electrical
                                             apprentices in British Columbia, with a specific
-                                            emphasis on neurodiverse learners. As Product Owner,
-                                            Project Manager, and Lead Product Designer, I led the
+                                            emphasis on neurodiverse learners. As Co Product Owner
+                                         and Lead Product Designer, I led the
                                             project end-to-end—from defining the problem and
                                             scoping the MVP to guiding research, design decisions,
                                             and implementation strategy.
@@ -311,25 +311,30 @@ export default function GotIt() {
                                     </div>
                                 </div>
                                 <h3 className={styles.sectionSubheading}>Competitive Analysis</h3>
-                                <p className={styles.projectBody}>
-                                    We analyzed 7 direct and indirect competitors, including
-                                    AI summarization tools and trade-focused study resources,
-                                    to understand their strengths, weaknesses, and target users.
-                                </p>
-                                <p className={styles.projectBody}>
-                                    Many AI tools could summarize information, but they were
-                                    not built for neurodiverse learners. Their interfaces were
-                                    often complex, and their outputs were not always reliable.
-                                    On the other hand, trade study resources provided accurate
-                                    information but lacked tools to simplify dense code material.
-                                </p>
-                                <div className={styles.gapsBlock}>
-                                    <p className={styles.gapsIntro}>Two clear gaps emerged:</p>
-                                    <ol className={styles.gapsList}>
-                                        <li>AI tools lacked accuracy and trust for regulated trade content.</li>
-                                        <li>Trade resources lacked structured support for breaking down complex information.</li>
-                                    </ol>
-                                </div>
+
+<p className={styles.projectBody}>
+We analyzed seven competitors, including AI summarization tools and trade-specific study resources, to understand what was already available.
+</p>
+
+<p className={styles.projectBody}>
+Most AI tools could summarize information, but they were not built for neurodiverse learners. Their interfaces were overwhelming, and their answers were not always reliable for regulated trade content. Because electrical standards vary by region, generic AI tools often pulled incorrect or irrelevant information.
+</p>
+
+<p className={styles.projectBody}>
+Trade study resources were accurate, but they did not help break down dense code into smaller, easier sections to study.
+</p>
+
+<div className={styles.gapsBlock}>
+  <p className={styles.gapsIntro}>Two clear gaps emerged:</p>
+  <ol className={styles.gapsList}>
+    <li>AI tools were not trustworthy enough for trade studying.</li>
+    <li>Trade resources did not simplify complex material.</li>
+  </ol>
+</div>
+
+<p className={styles.projectBody}>
+This reinforced our decision to avoid building an open chat tool and instead design a structured study experience grounded in the user’s own materials.
+</p>
                                 <h3 className={styles.sectionSubheading}>User Personas</h3>
                                 <div className={styles.personaRow}>
                                     <div className={styles.personaCards}>
