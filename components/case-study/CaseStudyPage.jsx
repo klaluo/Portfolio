@@ -241,6 +241,34 @@ export default function CaseStudyPage({ project, styles }) {
                                             <Paragraphs items={research.userSurvey.paragraphs} styles={styles} />
                                         </>
                                     )}
+                                    {research.surveyFindingsRows?.map((row, ri) => (
+                                        <div key={`survey-${ri}`} className={styles.findingsRow}>
+                                            <div className={styles.findingsCard}>
+                                                <h4
+                                                    className={`${styles.findingsCardTitle} ${styles.findingsCardTitleConcerns}`}
+                                                >
+                                                    {row.concerns.title}
+                                                </h4>
+                                                <ul>
+                                                    {row.concerns.items?.map((item, i) => (
+                                                        <li key={i}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                            <div className={styles.findingsCard}>
+                                                <h4
+                                                    className={`${styles.findingsCardTitle} ${styles.findingsCardTitleSolutions}`}
+                                                >
+                                                    {row.solutions.title}
+                                                </h4>
+                                                <ul>
+                                                    {row.solutions.items?.map((item, i) => (
+                                                        <li key={i}>{parseBold(item)}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    ))}
                                     {research.competitiveAnalysis && (
                                         <>
                                             <h3 className={styles.sectionSubheading}>

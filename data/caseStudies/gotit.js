@@ -93,6 +93,8 @@ const gotit = {
                     ],
                 },
             },
+        ],
+        surveyFindingsRows: [
             {
                 concerns: {
                     title: "Key concerns from survey",
@@ -127,34 +129,6 @@ const gotit = {
             ],
             
         },
-        
-        findingsRows: [
-            {
-                concerns: {
-                    title: "Key concerns from interviews",
-                    titleVariant: "concerns",
-                    items: [
-                        "High presence of ADHD and autism among trade students",
-                        "Dense, theory-heavy Level 1 content contributes to early retention issues",
-                        "Manuals and code books are heavy in jargon and emotionally disengaging",
-                        "Terminology in manuals often does not match how concepts are taught or practiced",
-                        "Jargon and terminology inconsistency are major barriers",
-                        "Misinformation from online sources (YouTube, forums) creates risk and confusion",
-                    ],
-                },
-                solutions: {
-                    title: "Possible solutions from interviews",
-                    titleVariant: "solutions",
-                    items: [
-                        "**Glossary & vocabulary tab:** reduce jargon and acronym overload",
-                        "**Structured breakdowns:** step-by-step, scannable content",
-                        "**Simplified summaries:** grounded in a sandboxed code source",
-                        "**Visuals and examples:** support for non-text learning preferences",
-                    ],
-                },
-            },
-        ],
-        
         competitiveAnalysis: {
             subheading: "Competitive Analysis",
             paragraphs: [
