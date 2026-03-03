@@ -57,10 +57,15 @@ export default function Navbar() {
                         >
                             About
                         </Link>
-                        <Link className='resumeButton' href='/resume'>
+                        <a
+                            className='resumeButton'
+                            href='/assets/kayla_luo_resume.pdf'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
                             Resume
                             <span aria-hidden='true'>↗</span>
-                        </Link>
+                        </a>
                     </div>
             </div>
         </nav>

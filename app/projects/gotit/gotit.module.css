@@ -333,6 +333,7 @@
   gap: 1.5rem;
   justify-content: center;
   margin: 0 0 2rem;
+  margin-top: 4rem;
 }
 
 .sectionHeadingLine {
@@ -357,6 +358,7 @@
   margin: 1.5rem 0 0.6rem;
   line-height: 1.4;
   text-align: left;
+  margin-top: 3rem;
 }
 
 .sectionSubheading:first-of-type {
