@@ -7,7 +7,7 @@ import Paragraphs from "./blocks/Paragraphs";
 import Bullets, { parseBold } from "./blocks/Bullets";
 import CardGrid from "./blocks/CardGrid";
 
-const MAIN_NAV_OFFSET_PX = 88;
+const MAIN_NAV_OFFSET_PX = 72;
 
 export default function CaseStudyPage({ project, styles }) {
     const outlineSections = project.nav || [];
@@ -140,17 +140,21 @@ export default function CaseStudyPage({ project, styles }) {
                         {isDocNavFixed && <div className={styles.docNavSpacer} />}
 
                         {/* Intro media */}
-                        <div className={styles.introMedia}>
-                            <img
-                                src={intro.introMedia?.primary?.src}
-                                alt={intro.introMedia?.primary?.alt}
-                                className={styles.introImagePrimary}
-                            />
-                            <img
-                                src={intro.introMedia?.secondary?.src}
-                                alt={intro.introMedia?.secondary?.alt}
-                                className={styles.introImageSecondary}
-                            />
+                        <div className={styles.introSection}>
+                            <div className={styles.introMedia}>
+                                <div className={styles.introMediaContainer}>
+                                    <img
+                                        src={intro.introMedia?.secondary?.src}
+                                        alt={intro.introMedia?.secondary?.alt}
+                                        className={styles.introMediaSecondary}
+                                    />
+                                    <img
+                                        src={intro.introMedia?.primary?.src}
+                                        alt={intro.introMedia?.primary?.alt}
+                                        className={styles.introMediaPrimary}
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         <div className={styles.projectContent}>
