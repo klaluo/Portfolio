@@ -32,13 +32,18 @@ const gotit = {
         title: "Overview",
         productName: "Got It",
         productParagraphs: [
-            "This project focused on designing and managing the development of an AI-powered study tool for electrical apprentices in British Columbia, with a specific emphasis on neurodiverse learners. As Co Product Owner and Lead Product Designer, I led the project end-to-end—from defining the problem and scoping the MVP to guiding research, design decisions, and implementation strategy.",
-            "The goal was to help apprentices simplify their own study materials without sacrificing accuracy. Unlike general AI summarization tools, this product sandboxed the Canadian Electrical Code to ensure reliable outputs for regulated trade content, reducing both cognitive overload and trust issues during studying.",
+            "One in five Canadian apprentices never finishes their trade program. Not because they lack skill but because the materials designed to teach them were never designed for how they actually learn. Dense code books. Jargon-filled manuals. No visual aids. No structure. Just pages of small text and the expectation that students will figure it out.",
+            "Got It is an AI-powered study tool built specifically for electrical apprentices in British Columbia, with a particular focus on the neurodiverse learners who make up a significant, often invisible, portion of every cohort.",
+        ],
+        roleSubheading: "My Role",
+        roleParagraphs: [
+            "As Co-Product Owner and Lead Product Designer, I led this project end-to-end: defining the problem, scoping the MVP, guiding research, making hard prioritization calls, and shaping every major design decision.",
+            "The core product decision that set us apart: instead of building another open-ended AI chat tool, we sandboxed our AI to the Canadian Electrical Code. Every output is grounded in verified source material — because for trade workers, inaccurate information isn't just frustrating. It's a safety issue.",
         ],
         logo: { src: "/images/gotit-logo-round.png", alt: "Got It" },
         insightsSubheading: "Insights",
         insightsParagraphs: [
-            "National apprenticeship data reveals low retention and completion in skilled trades: only about 19–20% of apprentices in Canada complete their programs within the expected timeframe, and up to 40–44% discontinue training within six years of registration.",
+            "Only 19–20% of Canadian apprentices complete their programs on time. Up to 44% drop out entirely within six years. These aren't engagement problems. They're design problems — and we set out to fix them.",
         ],
     },
 
@@ -66,7 +71,7 @@ const gotit = {
         findingsRows: [
             {
                 concerns: {
-                    title: "Key concerns from survey",
+                    title: "Key concerns from interviews",
                     titleVariant: "concerns",
                     items: [
                         "High presence of ADHD and autism among trade students",
@@ -78,7 +83,7 @@ const gotit = {
                     ],
                 },
                 solutions: {
-                    title: "Possible solutions from survey",
+                    title: "Possible solutions from interviews",
                     titleVariant: "solutions",
                     items: [
                         "**Glossary & vocabulary tab:** reduce jargon and acronym overload",
@@ -120,7 +125,36 @@ const gotit = {
                 "We conducted surveys with electrical apprentices to understand their study habits, main struggles, and the tools they use. Common difficulties included not knowing where to start, organizing information across sources, and learning from dense, jargon-filled textbooks—all of which contributed to cognitive overload.",
                 "These insights confirmed the need for a tool that helps apprentices simplify and structure their notes while maintaining accuracy.",
             ],
+            
         },
+        
+        findingsRows: [
+            {
+                concerns: {
+                    title: "Key concerns from interviews",
+                    titleVariant: "concerns",
+                    items: [
+                        "High presence of ADHD and autism among trade students",
+                        "Dense, theory-heavy Level 1 content contributes to early retention issues",
+                        "Manuals and code books are heavy in jargon and emotionally disengaging",
+                        "Terminology in manuals often does not match how concepts are taught or practiced",
+                        "Jargon and terminology inconsistency are major barriers",
+                        "Misinformation from online sources (YouTube, forums) creates risk and confusion",
+                    ],
+                },
+                solutions: {
+                    title: "Possible solutions from interviews",
+                    titleVariant: "solutions",
+                    items: [
+                        "**Glossary & vocabulary tab:** reduce jargon and acronym overload",
+                        "**Structured breakdowns:** step-by-step, scannable content",
+                        "**Simplified summaries:** grounded in a sandboxed code source",
+                        "**Visuals and examples:** support for non-text learning preferences",
+                    ],
+                },
+            },
+        ],
+        
         competitiveAnalysis: {
             subheading: "Competitive Analysis",
             paragraphs: [
