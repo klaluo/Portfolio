@@ -212,6 +212,8 @@ const gotit = {
 
     design: {
         title: "Design and Ideation",
+        introParagraph:
+            "Research gave us a long list of problems. My job as Lead Product Designer was to resist the urge to solve all of them. The biggest risk at this stage was not under-designing. It was over-designing. Building a feature-heavy tool for people who were already cognitively overloaded would have made things worse. So I set a clear design philosophy before a single wireframe was drawn.",
         principlesBlock: {
             paragraphs: [
                 "As Lead Product Designer, I translated research insights into a focused MVP. My core design principles were:",

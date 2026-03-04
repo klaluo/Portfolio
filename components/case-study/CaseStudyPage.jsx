@@ -342,6 +342,9 @@ export default function CaseStudyPage({ project, styles }) {
                             {/* Design */}
                             {design && (
                                 <CaseStudySection id="design" title={design.title} styles={styles}>
+                                    {design.introParagraph && (
+                                        <p className={styles.projectBody}>{design.introParagraph}</p>
+                                    )}
                                     {design.principlesBlock && (
                                         <div className={styles.designPrinciplesBlock}>
                                             <Paragraphs items={design.principlesBlock.paragraphs} styles={styles} />
