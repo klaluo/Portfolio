@@ -6,6 +6,7 @@ import ImageLightbox from "./ImageLightbox";
 import Paragraphs from "./blocks/Paragraphs";
 import Bullets, { parseBold } from "./blocks/Bullets";
 import CardGrid from "./blocks/CardGrid";
+import Carousel from "../Carousel/Carousel";
 
 const MAIN_NAV_OFFSET_PX = 72;
 
@@ -173,16 +174,13 @@ export default function CaseStudyPage({ project, styles }) {
                                                     <h3 className={styles.sectionSubheading}>{overview.productName}</h3>
                                                 )}
                                                 <Paragraphs items={overview.productParagraphs} styles={styles} />
-                                            </div>
-                                            {overview.logo && (
-                                                <div className={styles.overviewLogoWrap}>
-                                                    <img
-                                                        src={overview.logo.src}
-                                                        alt={overview.logo.alt}
-                                                        className={styles.overviewLogo}
+                                                {overview.carouselImages?.length > 0 && (
+                                                    <Carousel
+                                                        images={overview.carouselImages}
+                                                        ariaLabel="Overview images"
                                                     />
-                                                </div>
-                                            )}
+                                                )}
+                                            </div>
                                         </div>
                                         {overview.insightsSubheading && (
                                             <>
@@ -295,52 +293,38 @@ export default function CaseStudyPage({ project, styles }) {
                                     {research.personas && (
                                         <>
                                             <h3 className={styles.sectionSubheading}>{research.personas.subheading}</h3>
-                                            <div className={styles.personaRow}>
-                                                <div className={styles.personaCards}>
-                                                    <div className={styles.personaCard}>
-                                                        <span className={styles.personaCardLabel}>
-                                                            {research.personas.primary.label}
-                                                        </span>
-                                                        <div className={styles.personaCardBody}>
-                                                            <div className={styles.personaCardImagePlaceholder}>
-                                                                {research.personas.primary.imagePlaceholder}
-                                                            </div>
-                                                            <p className={styles.personaCardText}>
-                                                                {research.personas.primary.text}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className={styles.personaCard}>
-                                                        <span className={styles.personaCardLabel}>
-                                                            {research.personas.secondary.label}
-                                                        </span>
-                                                        <div className={styles.personaCardBody}>
-                                                            {research.personas.secondary.imageSrc && (
-                                                                <button
-                                                                    type="button"
-                                                                    className={styles.personaImageButton}
-                                                                    onClick={() =>
-                                                                        setLightboxImage(research.personas.secondary.imageSrc)
-                                                                    }
-                                                                    aria-label="View secondary persona full size"
-                                                                >
-                                                                    <img
-                                                                        src={research.personas.secondary.imageSrc}
-                                                                        alt={research.personas.secondary.imageAlt}
-                                                                        className={styles.personaCardImage}
-                                                                    />
-                                                                    <span className={styles.personaImageHint}>
-                                                                        Click to view full size
-                                                                    </span>
-                                                                </button>
-                                                            )}
-                                                            <p className={styles.personaCardText}>
-                                                                {research.personas.secondary.text}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p className={styles.personaSummary}>{research.personas.summary}</p>
+                                            <p className={styles.personaSummary}>{research.personas.summary}</p>
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    alignItems: "center",
+                                                    marginTop: "2rem",
+                                                }}
+                                            >
+                                                <img
+                                                    src="/images/projects/gotit/gotit-persona.png"
+                                                    alt="Got It user persona"
+                                                    style={{ maxWidth: "750px", width: "100%", height: "auto" }}
+                                                />
+                                                <a
+                                                    href="https://www.figma.com/board/4TxlwCUXXfpd8TctbKZz0s/User-Personas?node-id=0-1&t=avXFhpYMcNEqx809-1"
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    style={{
+                                                        marginTop: "1.5rem",
+                                                        padding: "0.75rem 1.5rem",
+                                                        borderRadius: "999px",
+                                                        backgroundColor: "#111827",
+                                                        color: "#ffffff",
+                                                        textDecoration: "none",
+                                                        fontSize: "0.9rem",
+                                                        fontWeight: 500,
+                                                        letterSpacing: "0.02em",
+                                                    }}
+                                                >
+                                                    View full persona
+                                                </a>
                                             </div>
                                         </>
                                     )}

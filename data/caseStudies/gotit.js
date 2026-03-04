@@ -30,10 +30,15 @@ const gotit = {
 
     overview: {
         title: "Overview",
-        productName: "Got It",
+        productName: "About the Project",
         productParagraphs: [
             "One in five Canadian apprentices never finishes their trade program. Not because they lack skill but because the materials designed to teach them were never designed for how they actually learn. Dense code books. Jargon-filled manuals. No visual aids. No structure. Just pages of small text and the expectation that students will figure it out.",
             "Got It is an AI-powered study tool built specifically for electrical apprentices in British Columbia, with a particular focus on the neurodiverse learners who make up a significant, often invisible, portion of every cohort.",
+        ],
+        carouselImages: [
+            { src: "/images/projects/gotit/gotit-codebook1.png", alt: "Got It codebook 1" },
+            { src: "/images/projects/gotit/gotit-codebook2.png", alt: "Got It codebook 2" },
+            { src: "/images/projects/gotit/gotit-codebook3.png", alt: "Got It codebook 3" },
         ],
         roleSubheading: "My Role",
         roleParagraphs: [
