@@ -1,52 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import { useState } from "react";
 import styles from "./Carousel.module.css";
 
 export default function Carousel({ images, ariaLabel, className }) {
-    const safeImages = useMemo(() => (Array.isArray(images) ? images : []), [images]);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start" });
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const [scrollSnaps, setScrollSnaps] = useState([]);
-    const [canScrollPrev, setCanScrollPrev] = useState(false);
-    const [canScrollNext, setCanScrollNext] = useState(false);
-
-    const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-        setCanScrollPrev(emblaApi.canScrollPrev());
-        setCanScrollNext(emblaApi.canScrollNext());
-    }, [emblaApi]);
-
-    useEffect(() => {
-        if (!emblaApi) return;
-
-        // Force reInit after mount so Embla measures correctly
-        // even if parent layout wasn't ready on first render
-        const timer = setTimeout(() => {
-            emblaApi.reInit();
-        }, 100);
-
-        setScrollSnaps(emblaApi.scrollSnapList());
-        onSelect();
-        emblaApi.on("select", onSelect);
-        emblaApi.on("reInit", () => {
-            setScrollSnaps(emblaApi.scrollSnapList());
-            onSelect();
-        });
-
-        return () => {
-            clearTimeout(timer);
-            emblaApi.off("select", onSelect);
-        };
-    }, [emblaApi, onSelect]);
-
-    const scrollTo   = useCallback((index) => emblaApi?.scrollTo(index), [emblaApi]);
-    const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-    const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+    const safeImages = Array.isArray(images) ? images : [];
+    const [activeIndex, setActiveIndex] = useState(0);
 
     if (!safeImages.length) return null;
+
+    const current = safeImages[activeIndex];
+    const canPrev = activeIndex > 0;
+    const canNext = activeIndex < safeImages.length - 1;
+
+    const goPrev = () => setActiveIndex((i) => Math.max(0, i - 1));
+    const goNext = () => setActiveIndex((i) => Math.min(safeImages.length - 1, i + 1));
+    const goTo = (index) => setActiveIndex(index);
 
     return (
         <div
@@ -55,57 +24,48 @@ export default function Carousel({ images, ariaLabel, className }) {
             aria-roledescription="carousel"
             aria-label={ariaLabel}
         >
-            <div className={styles.viewport} ref={emblaRef}>
-                <div className={styles.track}>
-                    {safeImages.map((img, idx) => (
-                        <div className={styles.slide} key={`${img.src}-${idx}`}>
-                            <div className={styles.slideInner}>
-                                <img
-                                    src={img.src}
-                                    alt={img.alt}
-                                    className={styles.image}
-                                    loading={idx === 0 ? "eager" : "lazy"}
-                                    decoding="async"
-                                />
-                            </div>
-                        </div>
-                    ))}
+            <div className={styles.viewport}>
+                <div className={styles.frame}>
+                    <img
+                        src={current.src}
+                        alt={current.alt}
+                        className={styles.image}
+                        loading="eager"
+                        decoding="async"
+                    />
                 </div>
             </div>
-
             <div className={styles.controls}>
                 <button
                     type="button"
                     className={styles.navButton}
-                    onClick={scrollPrev}
-                    disabled={!canScrollPrev}
+                    onClick={goPrev}
+                    disabled={!canPrev}
                     aria-label="Previous slide"
                 >
                     Prev
                 </button>
-
                 <div className={styles.dots} role="tablist" aria-label="Choose slide">
-                    {scrollSnaps.map((_, idx) => (
+                    {safeImages.map((_, idx) => (
                         <button
                             key={idx}
                             type="button"
                             className={
-                                idx === selectedIndex
+                                idx === activeIndex
                                     ? `${styles.dot} ${styles.dotSelected}`
                                     : styles.dot
                             }
-                            onClick={() => scrollTo(idx)}
+                            onClick={() => goTo(idx)}
                             aria-label={`Go to slide ${idx + 1}`}
-                            aria-current={idx === selectedIndex ? "true" : undefined}
+                            aria-current={idx === activeIndex ? "true" : undefined}
                         />
                     ))}
                 </div>
-
                 <button
                     type="button"
                     className={styles.navButton}
-                    onClick={scrollNext}
-                    disabled={!canScrollNext}
+                    onClick={goNext}
+                    disabled={!canNext}
                     aria-label="Next slide"
                 >
                     Next

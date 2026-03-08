@@ -7,30 +7,17 @@
 }
 
 .viewport {
+  width: 100%;
   overflow: hidden;
-  width: 100%;
 }
 
-.track {
-  display: flex;
-  will-change: transform;
-  width: 100%;
-}
-
-.slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  width: 100%;
-}
-
-.slideInner {
-  position: relative;
+.frame {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .image {
@@ -38,6 +25,7 @@
   height: auto;
   display: block;
   object-fit: contain;
+  vertical-align: middle;
 }
 
 .controls {
@@ -58,6 +46,11 @@
   font-size: 0.9rem;
   line-height: 1;
   cursor: pointer;
+}
+
+.navButton:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #d0d0d0;
 }
 
 .navButton:disabled {
@@ -81,6 +74,11 @@
   background: transparent;
   cursor: pointer;
   padding: 0;
+}
+
+.dot:hover {
+  border-color: #1f1f1f;
+  background: rgba(31, 31, 31, 0.15);
 }
 
 .dotSelected {

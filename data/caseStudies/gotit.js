@@ -285,7 +285,15 @@ const gotit = {
 
     finalProduct: {
         title: "Final Product",
-        placeholderMain: "Add final product visuals here",
+        carouselImages: [
+            { src: "/images/projects/gotit/gotit-final1-signup.png", alt: "Final wireframe: Sign up" },
+            { src: "/images/projects/gotit/gotit-final2-dashboard.png", alt: "Final wireframe: Dashboard" },
+            { src: "/images/projects/gotit/gotit-final3-confidence.png", alt: "Final wireframe: Confidence" },
+            { src: "/images/projects/gotit/gotit-final4-generate.png", alt: "Final wireframe: Generate" },
+            { src: "/images/projects/gotit/gotit-final5-onboarding.png", alt: "Final wireframe: Onboarding" },
+            { src: "/images/projects/gotit/gotit-final6-summarized.png", alt: "Final wireframe: Summarized" },
+            { src: "/images/projects/gotit/gotit-final7-mindmap.png", alt: "Final wireframe: Mind map" },
+        ],
         promotionalSubheading: "Promotional Materials",
         placeholderPromo: "Add merch images here",
     },

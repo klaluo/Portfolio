@@ -417,8 +417,14 @@ export default function CaseStudyPage({ project, styles }) {
                             {/* Final Product */}
                             {finalProduct && (
                                 <CaseStudySection id="final-product" title={finalProduct.title} styles={styles}>
-                                    {finalProduct.placeholderMain && (
-                                        <div className={styles.placeholderPanel}>{finalProduct.placeholderMain}</div>
+                                    {finalProduct.carouselImages?.length > 0 && (
+                                        <div className={styles.finalProductCarouselWrap}>
+                                            <Carousel
+                                                images={finalProduct.carouselImages}
+                                                ariaLabel="Final product wireframes"
+                                                className={styles.finalProductCarousel}
+                                            />
+                                        </div>
                                     )}
                                     {finalProduct.promotionalSubheading && (
                                         <h3 className={styles.sectionSubheading}>

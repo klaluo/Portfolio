@@ -787,6 +787,17 @@
   }
 }
 
+/* Final Product: full-width carousel for wireframes */
+.finalProductCarouselWrap {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.finalProductCarousel {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 .placeholderPanel {
   border: 1px dashed #d9d9d9;
   border-radius: 16px;
