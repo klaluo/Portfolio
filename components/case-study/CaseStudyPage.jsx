@@ -426,6 +426,7 @@ export default function CaseStudyPage({ project, styles }) {
                                             />
                                         </div>
                                     )}
+                                    {/* Merch / promotional section – uncomment to re-enable
                                     {finalProduct.promotionalSubheading && (
                                         <h3 className={styles.sectionSubheading}>
                                             {finalProduct.promotionalSubheading}
@@ -434,6 +435,7 @@ export default function CaseStudyPage({ project, styles }) {
                                     {finalProduct.placeholderPromo && (
                                         <div className={styles.placeholderPanel}>{finalProduct.placeholderPromo}</div>
                                     )}
+                                    */}
                                 </CaseStudySection>
                             )}
 
