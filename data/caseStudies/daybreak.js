@@ -23,21 +23,19 @@ const daybreak = {
             id: "overview",
             title: "Overview",
             blocks: [
-                { type: "subheading", text: "About the Project" },
+                { type: "subheading", text: "A race against a monster. A battle against each other." },
                 {
                     type: "paragraphs",
                     items: [
-                        "Daybreak is a multiplayer horror game where players must reach the end of a linear board while being chased by an advancing monster. Each turn, players roll, move, and use cards to gain advantages, disrupt others, or protect themselves.",
-                        "What makes the experience unique is its flexibility. Every card can be used in multiple ways, allowing players to adapt their strategy in real time. Combined with player interaction and a persistent threat, each round unfolds differently.",
+                        "Daybreak is a digital multiplayer board game where players race to the end of a linear board before an ENTITY — a monster — hunts them down. Players take turns rolling dice, playing cards, and sabotaging each other, all while the monster grows stronger with each passing cycle.",
+                        "The game ends when the last player standing reaches safety — or when the ENTITY claims them all.",
                     ],
                 },
-                { type: "subheading", text: "Key Insight" },
+                { type: "subheading", text: "Problem" },
                 {
                     type: "paragraphs",
                     items: [
-                        "Multiplayer games require players to process information quickly.",
-                        "If gameplay systems are confusing, players lose immersion and the experience breaks down.",
-                        "For Daybreak, the challenge was designing a gameplay system that remained strategic, readable, and immersive during fast multiplayer gameplay.",
+                        "Many multiplayer games suffer the same fate: an exciting first session, then abandonment once the gameplay becomes predictable. Without meaningful choices or real player interaction, there's nothing pulling people back.",
                     ],
                 },
             ],
