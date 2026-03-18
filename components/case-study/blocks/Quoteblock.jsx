@@ -1,5 +1,14 @@
 "use client";
 
+/**
+ * QuoteBlock
+ * ──────────
+ * Renders a pull quote with a left accent border.
+ * Sits between paragraphs to break up dense text.
+ *
+ * Data shape (from daybreak.js):
+ *   block.text : string
+ */
 export default function QuoteBlock({ block }) {
     return (
         <blockquote style={{
