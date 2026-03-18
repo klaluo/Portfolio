@@ -320,7 +320,7 @@ const daybreak = {
                         {
                             type: "paragraphs",
                             items: [
-                                "After paper prototyping, I moved into wireframing the two most complex player interactions: the card deal flow (players pay card points to choose which card to play) and the steal flow (a multi-step interaction with randomized resolution).",
+                                "After paper prototyping, I moved into wireframing the two complex player interactions: the card deal flow (players pay card points to choose which card to play) and the steal flow (a multi-step interaction with randomized resolution).",
                                 "Balancing a dark horror aesthetic with readable UI required careful visual hierarchy and interaction feedback.",
                             ],
                         },
@@ -333,6 +333,10 @@ const daybreak = {
                                 "**Wheel of Death** — visual spin mechanic",
                                 "**Custom Game Cursor**",
                             ],
+                        },
+                        {
+                            type: "figmaEmbed",
+                            url: "https://embed.figma.com/design/2QmAsMnJSC00cNPbZGkriH/Daybreak?node-id=2553-4488&embed-host=share",
                         },
                     ],
                 },
@@ -347,6 +351,11 @@ const daybreak = {
                                 "A core mechanic of Daybreak is its card system. Cards function simultaneously as actions players can perform, abilities they can activate, and currency used to pay for those abilities.",
                                 "This creates a strategic layer where players must decide whether to spend cards now or save them for future turns — the core tension of every round.",
                             ],
+                        },
+                        {
+                            type: "image",
+                            src: "/images/projects/daybreak/daybreak-cards.jpg",
+                            alt: "Daybreak card system",
                         },
                     ],
                 },
@@ -417,13 +426,16 @@ const daybreak = {
                 {
                     type: "group",
                     blocks: [
-                        { type: "tag", text: "Note" },
-                        { type: "subheading", text: "A note on the trailer." },
+                        { type: "subheading", text: "Trailer" },
                         {
                             type: "paragraphs",
                             items: [
-                                "A game teaser/trailer was created separately by another team member and is not represented in this case study as my work. My focus was the UX flows, card system, and visual assets.",
+                                "Trailer created by a teammate.",
                             ],
+                        },
+                        {
+                            type: "youtubeEmbed",
+                            videoId: "k7QUwUKi5Rs",
                         },
                     ],
                 },

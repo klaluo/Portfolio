@@ -47,7 +47,8 @@ export default function CaseStudyPage({ project, styles }) {
     useEffect(() => {
         if (project.bodyClass) document.body.classList.add(project.bodyClass);
         return () => {
-            if (project.bodyClass) document.body.classList.remove(project.bodyClass);
+            if (project.bodyClass)
+                document.body.classList.remove(project.bodyClass);
         };
     }, [project.bodyClass]);
 
@@ -56,7 +57,9 @@ export default function CaseStudyPage({ project, styles }) {
         const checkStick = () => {
             const sentinel = docNavSentinelRef.current;
             if (!sentinel) return;
-            setIsDocNavFixed(sentinel.getBoundingClientRect().top <= MAIN_NAV_OFFSET_PX);
+            setIsDocNavFixed(
+                sentinel.getBoundingClientRect().top <= MAIN_NAV_OFFSET_PX
+            );
         };
         checkStick();
         window.addEventListener("scroll", checkStick, { passive: true });
@@ -111,94 +114,84 @@ export default function CaseStudyPage({ project, styles }) {
                 );
 
             case "paragraphs":
-                return <Paragraphs key={index} items={block.items} styles={styles} />;
+                return (
+                    <Paragraphs
+                        key={index}
+                        items={block.items}
+                        styles={styles}
+                    />
+                );
 
             case "bullets":
-                return <Bullets key={index} items={block.items} styles={styles} />;
+                return (
+                    <Bullets key={index} items={block.items} styles={styles} />
+                );
 
-                case "cardGrid":
-                    return <CardGrid key={index} cards={block.cards} styles={styles} block={block} />;
+            case "cardGrid":
+                return (
+                    <CardGrid
+                        key={index}
+                        cards={block.cards}
+                        styles={styles}
+                        block={block}
+                    />
+                );
 
-                case "carousel": {
-                    const wrapClass = block.className
-                        ? styles[block.className]
-                        : styles.carouselWrap;
-                    return (
-                        <div key={index} className={wrapClass}>
-                            <Carousel
-                                images={block.images}
-                                ariaLabel={block.ariaLabel ?? "Carousel"}
-                            />
-                        </div>
-                    );
-                }
-                case "twoColumnContributions":
-                    return (
-                        <TwoColumnContributions key={index} block={block} styles={styles} />
-                    );
-                 
-                case "quoteBlock":
-                    return (
-                        <QuoteBlock key={index} block={block} styles={styles} />
-                    );
-                 
-                case "compTable":
-                    return (
-                        <CompTable key={index} block={block} styles={styles} />
-                    );
-                 
-                case "iterationCards":
-                    return (
-                        <IterationCards key={index} block={block} styles={styles} />
-                    );
-                    case "image":
-                        return (
-                            <div
-                                key={index}
-                                onClick={() => setLightboxImage(block.src)}
-                                style={{
-                                    cursor: "zoom-in",
-                                    borderRadius: "10px",
-                                    overflow: "hidden",
-                                    marginTop: "1rem",
-                                    position: "relative",
-                                }}
-                                className="group"
-                            >
-                                <img
-                                    src={block.src}
-                                    alt={block.alt}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                        display: "block",
-                                        borderRadius: "10px",
-                                        transition: "transform 0.3s ease",
-                                    }}
-                                    onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"}
-                                    onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-                                />
-                                {/* Hover overlay */}
-                                <div style={{
-                                    position: "absolute",
-                                    inset: 0,
-                                    background: "rgba(0,0,0,0)",
-                                    transition: "background 0.2s ease",
-                                    borderRadius: "10px",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
-                                    onMouseEnter={e => e.currentTarget.style.background = "rgba(0,0,0,0.05)"}
-                                    onMouseLeave={e => e.currentTarget.style.background = "rgba(0,0,0,0)"}
-                                />
-                            </div>
-                        );
+            case "carousel": {
+                const wrapClass = block.className
+                    ? styles[block.className]
+                    : styles.carouselWrap;
+                return (
+                    <div key={index} className={wrapClass}>
+                        <Carousel
+                            images={block.images}
+                            ariaLabel={block.ariaLabel ?? "Carousel"}
+                        />
+                    </div>
+                );
+            }
+            case "twoColumnContributions":
+                return (
+                    <TwoColumnContributions
+                        key={index}
+                        block={block}
+                        styles={styles}
+                    />
+                );
+
+            case "quoteBlock":
+                return <QuoteBlock key={index} block={block} styles={styles} />;
+
+            case "compTable":
+                return <CompTable key={index} block={block} styles={styles} />;
+
+            case "iterationCards":
+                return (
+                    <IterationCards key={index} block={block} styles={styles} />
+                );
+                case "image":
+    return (
+        <img
+            key={index}
+            src={block.src}
+            alt={block.alt}
+            style={{
+                width: "80%",
+                height: "auto",
+                display: "block",
+                borderRadius: "10px",
+                margin: "1rem auto 0",
+                
+            }}
+        />
+    );
             case "findingsRow":
                 return (
                     <div key={index} className={styles.findingsRow}>
                         <div className={styles.findingsCard}>
-                            <h4 className={`${styles.findingsCardTitle} ${styles.findingsCardTitleConcerns}`}>
+                            <h4
+                                className={`${styles.findingsCardTitle} ${styles.findingsCardTitleConcerns}`}
+                            >
                                 {block.concerns.title}
                             </h4>
                             <ul>
@@ -208,7 +201,9 @@ export default function CaseStudyPage({ project, styles }) {
                             </ul>
                         </div>
                         <div className={styles.findingsCard}>
-                            <h4 className={`${styles.findingsCardTitle} ${styles.findingsCardTitleSolutions}`}>
+                            <h4
+                                className={`${styles.findingsCardTitle} ${styles.findingsCardTitleSolutions}`}
+                            >
                                 {block.solutions.title}
                             </h4>
                             <ul>
@@ -219,20 +214,46 @@ export default function CaseStudyPage({ project, styles }) {
                         </div>
                     </div>
                 );
-                case "image":
+            case "image":
+                return (
+                    <img
+                        key={index}
+                        src={block.src}
+                        alt={block.alt}
+                        style={{
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: "10px",
+                            marginTop: "1rem",
+                            display: "block",
+                        }}
+                    />
+                );
+                case "youtubeEmbed":
     return (
-        <img
-            key={index}
-            src={block.src}
-            alt={block.alt}
-            style={{
-                width: "100%",
-                height: "auto",
-                borderRadius: "10px",
-                marginTop: "1rem",
-                display: "block",
-            }}
-        />
+        <div key={index} style={{
+            position: "relative",
+            width: "100%",
+            paddingBottom: "56.25%", // 16:9
+            height: 0,
+            marginTop: "1.5rem",
+            borderRadius: "10px",
+            overflow: "hidden",
+        }}>
+            <iframe
+                src={`https://www.youtube.com/embed/${block.videoId}?modestbranding=1&rel=0`}
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                    position: "absolute",
+                    top: 0, left: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                }}
+            />
+        </div>
     );
             case "featureCards":
                 return (
@@ -257,19 +278,23 @@ export default function CaseStudyPage({ project, styles }) {
                 return (
                     <div
                         key={index}
-                        style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            marginTop: "2rem",
+                        }}
                     >
                         <iframe
                             style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                            width="800"
-                            height="450"
+                            width='800'
+                            height='450'
                             src={block.url}
                             allowFullScreen
                         />
                     </div>
                 );
-                case "reflectionList":
-                    return <ReflectionList key={index} block={block} />;
+            case "reflectionList":
+                return <ReflectionList key={index} block={block} />;
             case "personaImage":
                 return (
                     <div
@@ -284,13 +309,17 @@ export default function CaseStudyPage({ project, styles }) {
                         <img
                             src={block.src}
                             alt={block.alt}
-                            style={{ maxWidth: "750px", width: "100%", height: "auto" }}
+                            style={{
+                                maxWidth: "750px",
+                                width: "100%",
+                                height: "auto",
+                            }}
                         />
                         {block.linkHref && (
                             <a
                                 href={block.linkHref}
-                                target="_blank"
-                                rel="noreferrer"
+                                target='_blank'
+                                rel='noreferrer'
                                 style={{
                                     marginTop: "1.5rem",
                                     padding: "0.75rem 1.5rem",
@@ -308,7 +337,6 @@ export default function CaseStudyPage({ project, styles }) {
                         )}
                     </div>
                 );
-                
 
             default:
                 return null;
@@ -318,9 +346,8 @@ export default function CaseStudyPage({ project, styles }) {
     // ── Render ────────────────────────────────────────────────────────────────
     return (
         <main className={`main ${styles.projectDetail}`} id={topId}>
-            <section className="section">
+            <section className='section'>
                 <div className={`container ${styles.projectContainer}`}>
-
                     {/* ── Intro ─────────────────────────────────────────────── */}
                     <div className={styles.projectIntro}>
                         <span className={styles.caseTag}>{intro.caseTag}</span>
@@ -328,11 +355,15 @@ export default function CaseStudyPage({ project, styles }) {
                         <div className={styles.introMeta}>
                             <div>
                                 <h3>My Role</h3>
-                                {intro.meta.role?.map((r, i) => <p key={i}>{r}</p>)}
+                                {intro.meta.role?.map((r, i) => (
+                                    <p key={i}>{r}</p>
+                                ))}
                             </div>
                             <div>
                                 <h3>Team</h3>
-                                {intro.meta.team?.map((t, i) => <p key={i}>{t}</p>)}
+                                {intro.meta.team?.map((t, i) => (
+                                    <p key={i}>{t}</p>
+                                ))}
                             </div>
                             <div>
                                 <h3>Timeline</h3>
@@ -340,7 +371,9 @@ export default function CaseStudyPage({ project, styles }) {
                             </div>
                             <div>
                                 <h3>Tools</h3>
-                                {intro.meta.tools?.map((t, i) => <p key={i}>{t}</p>)}
+                                {intro.meta.tools?.map((t, i) => (
+                                    <p key={i}>{t}</p>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -350,7 +383,7 @@ export default function CaseStudyPage({ project, styles }) {
                         <div
                             ref={docNavSentinelRef}
                             className={styles.docNavSentinel}
-                            aria-hidden="true"
+                            aria-hidden='true'
                         />
 
                         <div
@@ -360,8 +393,15 @@ export default function CaseStudyPage({ project, styles }) {
                                     : styles.docNav
                             }
                         >
-                            <a className={styles.docNavIcon} href="/" aria-label="Go to home">
-                                <img src={navLogo?.src} alt={navLogo?.alt ?? "Logo"} />
+                            <a
+                                className={styles.docNavIcon}
+                                href='/'
+                                aria-label='Go to home'
+                            >
+                                <img
+                                    src={navLogo?.src}
+                                    alt={navLogo?.alt ?? "Logo"}
+                                />
                             </a>
                             <ul className={styles.docNavList}>
                                 {outlineSections.map((section) => (
@@ -382,13 +422,15 @@ export default function CaseStudyPage({ project, styles }) {
                             <a
                                 className={styles.docNavIcon}
                                 href={`#${topId}`}
-                                aria-label="Back to top"
+                                aria-label='Back to top'
                             >
                                 ↑
                             </a>
                         </div>
 
-                        {isDocNavFixed && <div className={styles.docNavSpacer} />}
+                        {isDocNavFixed && (
+                            <div className={styles.docNavSpacer} />
+                        )}
 
                         {/* ── Intro media ───────────────────────────────────── */}
                         {intro.introMedia?.primary?.src && (
@@ -397,9 +439,17 @@ export default function CaseStudyPage({ project, styles }) {
                                     <div className={styles.introMediaContainer}>
                                         {intro.introMedia?.secondary?.src && (
                                             <img
-                                                src={intro.introMedia.secondary.src}
-                                                alt={intro.introMedia.secondary.alt}
-                                                className={styles.introMediaSecondary}
+                                                src={
+                                                    intro.introMedia.secondary
+                                                        .src
+                                                }
+                                                alt={
+                                                    intro.introMedia.secondary
+                                                        .alt
+                                                }
+                                                className={
+                                                    styles.introMediaSecondary
+                                                }
                                             />
                                         )}
                                         <img
@@ -421,7 +471,9 @@ export default function CaseStudyPage({ project, styles }) {
                                     title={section.title}
                                     styles={styles}
                                 >
-                                    {section.blocks?.map((block, i) => renderBlock(block, i))}
+                                    {section.blocks?.map((block, i) =>
+                                        renderBlock(block, i)
+                                    )}
                                 </CaseStudySection>
                             ))}
                         </div>
