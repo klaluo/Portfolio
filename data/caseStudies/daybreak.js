@@ -5,14 +5,14 @@ const daybreak = {
 
     intro: {
         caseTag: "Case Study",
-        title: "Designing the Gameplay System for a Multiplayer Horror Game",
+        title: "Daybreak is a story-driven multiplayer horror game where players race to the finish line, making split-second decisions as they outpace the monster and outsmart their opponents.",
         meta: {
             role: [
                 "Product Designer & Scrum Master",
             ],
-            team: ["1 Designer (Me)", "3 Full-Stack Developers"],
+            team: ["6 Designers", "3 Full-Stack Developers"],
             timeline: "8 Weeks",
-            tools: ["Figma", "Illustrator", "Photoshop", "Jira", "Trello", "Miro"],
+            tools: ["Figma", "Illustrator", "Photoshop", "Jira", "Procreate"],
         },
     },
 
@@ -27,10 +27,8 @@ const daybreak = {
                 {
                     type: "paragraphs",
                     items: [
-                        "Daybreak is an online multiplayer survival horror game centered on betrayal and sabotage.",
-                        "Players must work together to survive the night and reach the finish line — while one player secretly sabotages the group.",
-                        "The game blends horror exploration with social deduction mechanics, creating tension as players question who they can trust.",
-                        "As the designer and Scrum Master, I helped lead the research process, designed the core gameplay interactions, and facilitated collaboration between design and development.",
+                        "Daybreak is a multiplayer horror game where players must reach the end of a linear board while being chased by an advancing monster. Each turn, players roll, move, and use cards to gain advantages, disrupt others, or protect themselves.",
+                        "What makes the experience unique is its flexibility. Every card can be used in multiple ways, allowing players to adapt their strategy in real time. Combined with player interaction and a persistent threat, each round unfolds differently.",
                     ],
                 },
                 { type: "subheading", text: "Key Insight" },
