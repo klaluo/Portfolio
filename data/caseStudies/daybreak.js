@@ -43,7 +43,7 @@ const daybreak = {
                             left: {
                                 paragraphs: [
                                     "Daybreak is a multiplayer board game where players race to reach safety before a pursuing monster catches them. Each turn combines dice movement, strategic card play, and player sabotage, creating a tense and competitive experience.",
-                                    "The game ends when the last player standing reaches safety — or when the ENTITY claims them all.",
+                                    "The game ends when the last player standing reaches safety or when the ENTITY claims them all.",
                                 ],
                             },
                             right: {
@@ -69,7 +69,7 @@ const daybreak = {
                         {
                             type: "paragraphs",
                             items: [
-                                "For Daybreak, the design challenge was specific: how do you create a game that stays engaging across multiple rounds while balancing competition, randomness, and player control — without the experience becoming overwhelming or unfair?",
+                                "For Daybreak, the design challenge was specific: how do you create a game that stays engaging across multiple rounds while balancing competition, randomness, and player control?",
                             ],
                         },
                         {
@@ -87,7 +87,7 @@ const daybreak = {
                         {
                             type: "paragraphs",
                             items: [
-                                "We designed a card-based system that allows players to approach each round differently — combining strategy, randomness, and player interaction. Cards were divided into three distinct categories, each serving a unique role in the moment-to-moment experience.",
+                                "We designed a card-based system that allows players to approach each round differently by combining strategy, randomness, and player interaction. Cards were divided into three distinct categories, each serving a unique role in the moment-to-moment experience.",
                             ],
                         },
                         {
@@ -158,7 +158,7 @@ const daybreak = {
                         },
                         {
                             type: "quoteBlock",
-                            text: "We initially moved forward with a selected concept — but early in development we realized it was too complex for our timeline. I proposed simplifying the game while keeping the core storyline intact. As a team, we pivoted. This allowed us to stay true to the original vision while building something more focused and achievable.",
+                            text: "We initially moved forward with a selected concept but early in development we realized it was too complex for our timeline. I proposed simplifying the game while keeping the core storyline intact. As a team, we pivoted. This allowed us to stay true to the original vision while building something more focused and achievable.",
                         },
                     ],
                 },
@@ -167,7 +167,7 @@ const daybreak = {
                     type: "group",
                     blocks: [
                         { type: "tag", text: "User Survey" },
-                        { type: "subheading", text: "We asked real players what keeps them — and what drives them away." },
+                        { type: "subheading", text: "We asked real players what keeps them and what drives them away." },
                         {
                             type: "paragraphs",
                             items: [
@@ -376,20 +376,6 @@ const daybreak = {
                     ],
                 },
 
-                {
-                    type: "group",
-                    blocks: [
-                        { type: "tag", text: "Gameplay Event" },
-                        { type: "subheading", text: "Wheel of Death" },
-                        {
-                            type: "paragraphs",
-                            items: [
-                                "Another gameplay interaction I designed was the Wheel of Death, triggered when players land on dangerous spaces on the map.",
-                                "The wheel introduces unpredictable outcomes and reinforces the horror atmosphere. The UI needed to clearly communicate risk while maintaining suspense — a difficult balance between clarity and tension.",
-                            ],
-                        },
-                    ],
-                },
 
                 
             ],
@@ -472,7 +458,7 @@ const daybreak = {
                             items: [
                                 {
                                     label: "Pivot early, not late.",
-                                    body: "Recognizing that our original concept was too ambitious — and advocating for a simpler direction — was the most impactful decision I made on this project.",
+                                    body: "Recognizing that our original concept was too ambitious and advocating for a simpler direction was the most impactful decision I made on this project.",
                                 },
                                 {
                                     label: "Paper beats assumptions.",
@@ -480,11 +466,11 @@ const daybreak = {
                                 },
                                 {
                                     label: "Balance is a systems problem.",
-                                    body: "The issues we found weren't wrong numbers — they were systems interacting badly. Good UX means thinking in systems, not features.",
+                                    body: "The issues we found weren't wrong numbers, they were systems interacting badly. Good UX means thinking in systems, not features.",
                                 },
                                 {
-                                    label: "Wearing two hats sharpens both.",
-                                    body: "Being Scrum Master and designer forced me to balance creative ambition with what the team could actually ship. Constraints focus ideas — they don't kill them.",
+                                    label: "Facilitation is part of good design.",
+                                    body: "Keeping the team aligned, unblocked, and moving forward had a direct impact on the quality of the final product.",
                                 },
                             ],
                         },
