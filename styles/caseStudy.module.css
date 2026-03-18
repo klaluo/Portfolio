@@ -291,7 +291,7 @@
 .sectionHeadingTitle {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #1f1f1f;
+  color: #4b4b4b;
   font-family: 'Mona Sans', 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu',sans-serif;
   white-space: nowrap;
 }
@@ -330,7 +330,6 @@
   border: 1px solid #f0a500;
   background: #fff5e0;
   color: #c47d00;
-  margin-bottom: 0.5rem;
 }
 
 /* ── Subheading — large editorial style, matching reference ────────────────── */
