@@ -32,7 +32,8 @@ const daybreak = {
                         "The game ends when the last player standing reaches safety — or when the ENTITY claims them all.",
                     ],
                 },
-                { type: "subheading", text: "Problem" },
+                {type: "tag", text: "Problem"},
+                { type: "subheading", text: "Most multiplayer games get picked up — and put down forever."},
                 {
                     type: "paragraphs",
                     items: [
@@ -45,7 +46,8 @@ const daybreak = {
             id: "research",
             title: "Research",
             blocks: [
-                { type: "subheading", text: "Concept Ideation" },
+                {type: "tag", text: "CONCEPT IDEATION"},
+                { type: "subheading", text: "Independent concepts first. Then the real conversation." },
                 {
                     type: "paragraphs",
                     items: [
@@ -55,32 +57,20 @@ const daybreak = {
                         "The concept we selected became Daybreak.",
                     ],
                 },
-                { type: "subheading", text: "Competitive Analysis" },
+                {type: "tag", text: "Competitive Analysis"},
+                { type: "subheading", text: "What similar games get right — and where they all fall short." },
                 {
                     type: "paragraphs",
                     items: [
-                        "We analyzed multiplayer and deception-based games such as:",
+                        "We analyzed existing multiplayer board and card games to understand where the market is, and where Daybreak could carve out a distinct experience.",
                     ],
                 },
-                { type: "bullets", items: ["Among Us", "Dead by Daylight"] },
-                {
-                    type: "paragraphs",
-                    items: [
-                        "This helped us understand:",
-                    ],
-                },
-                {
-                    type: "bullets",
-                    items: [
-                        "common mechanics used in deception-based gameplay",
-                        "how tension and suspense are created",
-                        "visual expectations within the genre",
-                    ],
-                },
-                {
-                    type: "paragraphs",
-                    items: ["These insights helped guide our gameplay and interface design decisions."],
-                },
+            ],
+        },
+        {
+            id: "design",
+            title: "Design",
+            blocks: [
                 { type: "subheading", text: "Early Gameplay Testing" },
                 {
                     type: "paragraphs",
@@ -101,12 +91,6 @@ const daybreak = {
                     type: "paragraphs",
                     items: ["This helped us refine the mechanics before development began."],
                 },
-            ],
-        },
-        {
-            id: "design",
-            title: "Design",
-            blocks: [
                 { type: "subheading", text: "Designing the Card System" },
                 {
                     type: "paragraphs",
