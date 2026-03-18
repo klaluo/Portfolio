@@ -7,6 +7,10 @@ import Paragraphs from "./blocks/Paragraphs";
 import Bullets, { parseBold } from "./blocks/Bullets";
 import CardGrid from "./blocks/CardGrid";
 import Carousel from "../Carousel/Carousel";
+import TwoColumnContributions from "./blocks/TwoColumnContributions";
+import CompTable from "./blocks/CompTable";
+import IterationCards from "./blocks/IterationCards";
+import QuoteBlock from "./blocks/QuoteBlock";
 
 const MAIN_NAV_OFFSET_PX = 72;
 
@@ -111,8 +115,8 @@ export default function CaseStudyPage({ project, styles }) {
             case "bullets":
                 return <Bullets key={index} items={block.items} styles={styles} />;
 
-            case "cardGrid":
-                return <CardGrid key={index} cards={block.cards} styles={styles} />;
+                case "cardGrid":
+                    return <CardGrid key={index} cards={block.cards} styles={styles} block={block} />;
 
                 case "carousel": {
                     const wrapClass = block.className
@@ -127,7 +131,25 @@ export default function CaseStudyPage({ project, styles }) {
                         </div>
                     );
                 }
-
+                case "twoColumnContributions":
+                    return (
+                        <TwoColumnContributions key={index} block={block} styles={styles} />
+                    );
+                 
+                case "quoteBlock":
+                    return (
+                        <QuoteBlock key={index} block={block} styles={styles} />
+                    );
+                 
+                case "compTable":
+                    return (
+                        <CompTable key={index} block={block} styles={styles} />
+                    );
+                 
+                case "iterationCards":
+                    return (
+                        <IterationCards key={index} block={block} styles={styles} />
+                    );
             case "findingsRow":
                 return (
                     <div key={index} className={styles.findingsRow}>
