@@ -1,17 +1,9 @@
-export default function Daybreak() {
-    return (
-        <main className='main'>
-            <section className='section'>
-                <div className='container'>
-                    <h1 className='sectionTitle'>Daybreak</h1>
-                    <div className='sectionContent'>
-                        <p className='cardDescription'>
-                            Daybreak Case Study coming soon...
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </main>
-    );
-}
+"use client";
 
+import daybreak from "../../../data/caseStudies/daybreak";
+import CaseStudyPage from "../../../components/case-study/CaseStudyPage";
+import styles from "./daybreak.module.css";
+
+export default function DaybreakPage() {
+    return <CaseStudyPage project={daybreak} styles={styles} />;
+}
