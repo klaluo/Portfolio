@@ -31,15 +31,17 @@ const featuredProjects = [
     },
     {
         companyName: "DayBreak",
-        title: "A multi-player horror game",
-        tags: ["Case Study", "Research", "Design", "Prototype"],
+        title: "Designing a Multiplayer Online Game Built on Storytelling, Strategy, Tension, and Replayability.",
+        tags: ["Scrum Master", "UX/UI Designer",],
+        tagVariant: "outline",
+        toolIcons: [
+            { src: "/images/figma.png", alt: "Figma" },
+            { src: "/images/jira.png", alt: "Jira" },
+            { src: "/images/illustrator.png", alt: "Adobe Illustrator" },
+        ],
+        imageSrc: "/images/projects/daybreak/daybreak-hero.jpg",
+        imageAlt: "Daybreak gameplay screen",
         href: "/projects/daybreak",
-    },
-    {
-        companyName: "",
-        title: "Coming Soon",
-        tags: ["Illustrator"],
-        href: "/projects/project-3",
     },
 ];
 
