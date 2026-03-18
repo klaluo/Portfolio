@@ -10,7 +10,7 @@ import Carousel from "../Carousel/Carousel";
 import TwoColumnContributions from "./blocks/TwoColumnContributions";
 import CompTable from "./blocks/CompTable";
 import IterationCards from "./blocks/IterationCards";
-import QuoteBlock from "./blocks/QuoteBlock";
+import QuoteBlock from "./blocks/Quoteblock";
 import ReflectionList from "./blocks/ReflectionList";
 
 const MAIN_NAV_OFFSET_PX = 72;
