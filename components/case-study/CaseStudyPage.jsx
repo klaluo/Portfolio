@@ -77,6 +77,12 @@ export default function CaseStudyPage({ project, styles }) {
     function renderBlock(block) {
         if (!block) return null;
         switch (block.type) {
+            case "tag":
+                return (
+                    <div className={styles.blockTagRow}>
+                        <span className={styles.sectionTag}>{block.text}</span>
+                    </div>
+                );
             case "subheading":
                 return <h3 className={styles.sectionSubheading}>{block.text}</h3>;
             case "paragraphs":

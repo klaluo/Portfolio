@@ -23,6 +23,7 @@ const daybreak = {
             id: "overview",
             title: "Overview",
             blocks: [
+                { type: "tag", text: "The Project" },
                 { type: "subheading", text: "A race against a monster. A battle against each other." },
                 {
                     type: "paragraphs",
