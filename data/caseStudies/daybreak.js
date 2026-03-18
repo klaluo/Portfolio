@@ -28,13 +28,6 @@ const daybreak = {
                     blocks: [
                         { type: "tag", text: "The Project" },
                         { type: "subheading", text: "A race against a monster. A battle against each other." },
-                        /*
-                         * NEW BLOCK TYPE: twoColumnContributions
-                         * Renders a two-column layout:
-                         *   left  → paragraphs (project description)
-                         *   right → labelled bullet list (contributions)
-                         * Component: src/components/blocks/TwoColumnContributions.jsx
-                         */
                         {
                             type: "twoColumnContributions",
                             left: {
@@ -69,11 +62,6 @@ const daybreak = {
                                 "For Daybreak, the design challenge was specific: how do you create a game that stays engaging across multiple rounds while balancing competition, randomness, and player control — without the experience becoming overwhelming or unfair?",
                             ],
                         },
-                        /*
-                         * NEW BLOCK TYPE: quoteBlock
-                         * Renders a pull quote — bordered left accent, large serif text.
-                         * Component: src/components/blocks/QuoteBlock.jsx
-                         */
                         {
                             type: "quoteBlock",
                             text: "Players needed to feel both strategic and reactive. Decisions had to matter. Every round needed to feel different from the last.",
@@ -92,13 +80,6 @@ const daybreak = {
                                 "We designed a card-based system that allows players to approach each round differently — combining strategy, randomness, and player interaction. Cards were divided into three distinct categories, each serving a unique role in the moment-to-moment experience.",
                             ],
                         },
-                        /*
-                         * UPGRADED BLOCK TYPE: cardGrid
-                         * Existing CardGrid.jsx uses cards[].title + cards[].items
-                         * Extended shape adds: label, accent (color), description
-                         * Update CardGrid.jsx to render the top accent border + label + description
-                         * Component: src/components/blocks/CardGrid.jsx
-                         */
                         {
                             type: "cardGrid",
                             cards: [
@@ -183,7 +164,6 @@ const daybreak = {
                                 "Before designing anything, we ran a user survey to understand what makes games engaging, what frustrates players, and how people behave in multiplayer settings. The findings shaped every design decision that followed.",
                             ],
                         },
-                        // Existing block type — concerns (red) vs opportunities (green) side by side
                         {
                             type: "findingsRow",
                             concerns: {
@@ -225,22 +205,6 @@ const daybreak = {
                                 "We analyzed existing multiplayer board and card games to understand where the market is, and where Daybreak could carve out a distinct experience.",
                             ],
                         },
-                        /*
-                         * NEW BLOCK TYPE: compTable
-                         * Renders a comparison table with strength tags and gap descriptions.
-                         * The last row with highlight: true renders with a distinct background
-                         * to show Daybreak as the solution row.
-                         * Component: src/components/blocks/CompTable.jsx
-                         *
-                         * Props shape:
-                         *   columns: string[]           — header labels
-                         *   rows: {
-                         *     game: string
-                         *     strengths: string[]       — rendered as small tag pills
-                         *     gap: string               — plain text description
-                         *     highlight?: boolean       — highlights the Daybreak row
-                         *   }[]
-                         */
                         {
                             type: "compTable",
                             columns: ["Game", "Strengths", "Gap for Daybreak"],
@@ -315,19 +279,6 @@ const daybreak = {
                                 "Two rounds of paper playtesting surfaced four critical balance issues before a single line of code was written.",
                             ],
                         },
-                        /*
-                         * NEW BLOCK TYPE: iterationCards
-                         * Renders a 2×2 grid of problem → fix cards.
-                         * Each card shows: problem (header), description (body), fix (highlighted footer tag).
-                         * Component: src/components/blocks/IterationCards.jsx
-                         *
-                         * Props shape:
-                         *   cards: {
-                         *     problem: string      — card header (the issue found)
-                         *     description: string  — what happened during testing
-                         *     fix: string          — what we changed
-                         *   }[]
-                         */
                         {
                             type: "iterationCards",
                             cards: [
@@ -489,57 +440,31 @@ const daybreak = {
                                 "Daybreak taught me that designing a game and designing a product are more similar than they first appear. Both require you to understand what keeps people engaged — and both punish you immediately when you get it wrong.",
                             ],
                         },
-                    ],
-                },
-                {
-                    type: "group",
-                    blocks: [
-                        { type: "tag", text: "Takeaway 01" },
-                        { type: "subheading", text: "The pivot was the right call — and I'd make it sooner next time." },
+                        /*
+                         * NEW BLOCK TYPE: reflectionList
+                         * Stacked takeaways separated by thin grey dividers.
+                         * Small numbered label + bold title + body text — no large subheadings.
+                         * Component: src/components/blocks/ReflectionList.jsx
+                         */
                         {
-                            type: "paragraphs",
+                            type: "reflectionList",
                             items: [
-                                "Scope creep is the silent killer of side projects and studio games alike. Recognizing that the original concept was too ambitious — and advocating for a focused alternative — was the most impactful design decision I made on this project.",
-                                "As Scrum Master, I helped guide the team through this shift by clarifying priorities and ensuring everyone stayed aligned.",
-                            ],
-                        },
-                    ],
-                },
-                {
-                    type: "group",
-                    blocks: [
-                        { type: "tag", text: "Takeaway 02" },
-                        { type: "subheading", text: "Paper prototyping isn't a shortcut. It's the fastest way to find real problems." },
-                        {
-                            type: "paragraphs",
-                            items: [
-                                "Two playtests with paper cards surfaced more balance issues than weeks of hypothetical design might have. The fastest path to insight is always making something tangible and putting it in front of people.",
-                            ],
-                        },
-                    ],
-                },
-                {
-                    type: "group",
-                    blocks: [
-                        { type: "tag", text: "Takeaway 03" },
-                        { type: "subheading", text: "Balance is a systems problem, not a math problem." },
-                        {
-                            type: "paragraphs",
-                            items: [
-                                "The card balancing issues we discovered — too much movement, too many sabotage cards — weren't about the numbers being wrong. They were about how the systems interacted. Good game design (and good UX) means thinking in systems, not features.",
-                            ],
-                        },
-                    ],
-                },
-                {
-                    type: "group",
-                    blocks: [
-                        { type: "tag", text: "Takeaway 04" },
-                        { type: "subheading", text: "Scrum Master and designer is a tension worth leaning into." },
-                        {
-                            type: "paragraphs",
-                            items: [
-                                "Playing both roles forced me to balance creative ambition with team feasibility. I had to say \"not in this sprint\" more than I wanted to — and the project was better for it. Constraints don't kill ideas. They focus them.",
+                                {
+                                    label: "Pivot early, not late.",
+                                    body: "Recognizing that our original concept was too ambitious — and advocating for a simpler direction — was the most impactful decision I made on this project.",
+                                },
+                                {
+                                    label: "Paper beats assumptions.",
+                                    body: "Two playtests with physical cards surfaced more balance problems than weeks of hypothetical design would have.",
+                                },
+                                {
+                                    label: "Balance is a systems problem.",
+                                    body: "The issues we found weren't wrong numbers — they were systems interacting badly. Good UX means thinking in systems, not features.",
+                                },
+                                {
+                                    label: "Wearing two hats sharpens both.",
+                                    body: "Being Scrum Master and designer forced me to balance creative ambition with what the team could actually ship. Constraints focus ideas — they don't kill them.",
+                                },
                             ],
                         },
                     ],

@@ -11,6 +11,7 @@ import TwoColumnContributions from "./blocks/TwoColumnContributions";
 import CompTable from "./blocks/CompTable";
 import IterationCards from "./blocks/IterationCards";
 import QuoteBlock from "./blocks/QuoteBlock";
+import ReflectionList from "./blocks/ReflectionList";
 
 const MAIN_NAV_OFFSET_PX = 72;
 
@@ -210,7 +211,8 @@ export default function CaseStudyPage({ project, styles }) {
                         />
                     </div>
                 );
-
+                case "reflectionList":
+                    return <ReflectionList key={index} block={block} />;
             case "personaImage":
                 return (
                     <div
@@ -249,6 +251,7 @@ export default function CaseStudyPage({ project, styles }) {
                         )}
                     </div>
                 );
+                
 
             default:
                 return null;
