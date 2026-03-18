@@ -23,23 +23,30 @@ export default function ProjectShowcaseCard({
     imageSrc,
     imageAlt = "",
     tagVariant = "filled",
+    imageFullBleed = false, // ADD THIS
 }) {
     return (
         <Link
             href={href}
-            className={`showcaseCard ${imageOnLeft ? "showcaseCardReverse" : ""}`}
+            className={`showcaseCard ${
+                imageOnLeft ? "showcaseCardReverse" : ""
+            }`}
         >
-            <div className="showcaseCardLeft">
+            <div className='showcaseCardLeft'>
                 {companyName && (
-                    <span className="showcaseCompany">{companyName}</span>
+                    <span className='showcaseCompany'>{companyName}</span>
                 )}
-                <h3 className="showcaseTitle">{title}</h3>
+                <h3 className='showcaseTitle'>{title}</h3>
                 {tags.length > 0 && (
-                    <div className="showcaseTags">
+                    <div className='showcaseTags'>
                         {tags.map((tag, i) => (
                             <span
                                 key={i}
-                                className={`showcaseTag ${tagVariant === "outline" ? "showcaseTagOutline" : ""}`}
+                                className={`showcaseTag ${
+                                    tagVariant === "outline"
+                                        ? "showcaseTagOutline"
+                                        : ""
+                                }`}
                             >
                                 {tag}
                             </span>
@@ -47,33 +54,44 @@ export default function ProjectShowcaseCard({
                     </div>
                 )}
                 {toolIcons.length > 0 && (
-                    <div className="showcaseToolIcons">
+                    <div className='showcaseToolIcons'>
                         {toolIcons.map((icon, i) => (
                             <img
                                 key={i}
                                 src={icon.src}
                                 alt={icon.alt}
-                                className="showcaseToolIcon"
+                                className='showcaseToolIcon'
                             />
                         ))}
                     </div>
                 )}
-                <span className="showcaseButton">View Work</span>
+                <span className='showcaseButton'>View Work</span>
             </div>
-            <div className="showcaseCardRight">
-                <div className="showcaseImageFrame">
-                    {imageSrc ? (
-                        <img
-                            src={imageSrc}
-                            alt={imageAlt}
-                            className="showcaseImage"
-                        />
-                    ) : (
-                        <div className="showcasePlaceholder" aria-hidden="true">
-                            Image placeholder
-                        </div>
-                    )}
-                </div>
+            <div className='showcaseCardRight'>
+                {imageFullBleed ? (
+                    <img
+                        src={imageSrc}
+                        alt={imageAlt}
+                        className='showcaseImageFull'
+                    />
+                ) : (
+                    <div className='showcaseImageFrame'>
+                        {imageSrc ? (
+                            <img
+                                src={imageSrc}
+                                alt={imageAlt}
+                                className='showcaseImage'
+                            />
+                        ) : (
+                            <div
+                                className='showcasePlaceholder'
+                                aria-hidden='true'
+                            >
+                                Image placeholder
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
         </Link>
     );

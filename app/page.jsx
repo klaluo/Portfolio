@@ -32,15 +32,16 @@ const featuredProjects = [
     {
         companyName: "DayBreak",
         title: "Designing a Multiplayer Online Game Built on Storytelling, Strategy, Tension, and Replayability.",
-        tags: ["Scrum Master", "UX/UI Designer",],
+        tags: ["Scrum Master", "UX/UI Designer"],
         tagVariant: "outline",
         toolIcons: [
             { src: "/images/figma.png", alt: "Figma" },
             { src: "/images/jira.png", alt: "Jira" },
             { src: "/images/illustrator.png", alt: "Adobe Illustrator" },
         ],
-        imageSrc: "/images/projects/daybreak/daybreak-hero.jpg",
+        imageSrc: "/images/projects/daybreak/daybreak.gif",
         imageAlt: "Daybreak gameplay screen",
+        imageFullBleed: true,
         href: "/projects/daybreak",
     },
 ];
@@ -123,6 +124,7 @@ export default function Home() {
                                     imageOnLeft={i % 2 === 1}
                                     imageSrc={project.imageSrc}
                                     imageAlt={project.imageAlt}
+                                    imageFullBleed={project.imageFullBleed}
                                 />
                             ))}
                         </div>

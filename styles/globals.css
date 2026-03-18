@@ -766,6 +766,13 @@ a:hover {
   border-radius:20px;
 }
 
+.showcaseImageFull {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
 .showcaseList {
   display: flex;
   flex-direction: column;
@@ -799,6 +806,9 @@ a:hover {
   .showcaseImageFrame {
     min-height: 240px;
   }
+}
+.showcaseCardRight {
+  position: relative;  /* ADD */
 }
 
 /* Grid */
