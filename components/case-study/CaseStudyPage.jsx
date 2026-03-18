@@ -151,6 +151,49 @@ export default function CaseStudyPage({ project, styles }) {
                     return (
                         <IterationCards key={index} block={block} styles={styles} />
                     );
+                    case "image":
+                        return (
+                            <div
+                                key={index}
+                                onClick={() => setLightboxImage(block.src)}
+                                style={{
+                                    cursor: "zoom-in",
+                                    borderRadius: "10px",
+                                    overflow: "hidden",
+                                    marginTop: "1rem",
+                                    position: "relative",
+                                }}
+                                className="group"
+                            >
+                                <img
+                                    src={block.src}
+                                    alt={block.alt}
+                                    style={{
+                                        width: "100%",
+                                        height: "auto",
+                                        display: "block",
+                                        borderRadius: "10px",
+                                        transition: "transform 0.3s ease",
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"}
+                                    onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                                />
+                                {/* Hover overlay */}
+                                <div style={{
+                                    position: "absolute",
+                                    inset: 0,
+                                    background: "rgba(0,0,0,0)",
+                                    transition: "background 0.2s ease",
+                                    borderRadius: "10px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                }}
+                                    onMouseEnter={e => e.currentTarget.style.background = "rgba(0,0,0,0.05)"}
+                                    onMouseLeave={e => e.currentTarget.style.background = "rgba(0,0,0,0)"}
+                                />
+                            </div>
+                        );
             case "findingsRow":
                 return (
                     <div key={index} className={styles.findingsRow}>
