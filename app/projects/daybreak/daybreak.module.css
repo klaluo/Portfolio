@@ -19,6 +19,30 @@
   text-align: center;
 }
 
+/* ── sectionBlock ─────────────────────────────────────────────────────────────
+   Wrapper for a logical group of blocks within a section.
+   Provides consistent vertical spacing and a light card treatment.
+   Usage: { type: "group", blocks: [...] } in your data file.
+──────────────────────────────────────────────────────────────────────────── */
+.sectionBlock {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Remove top margin from the first subheading inside a block group
+   so it doesn't double-stack with the block's own padding */
+.sectionBlock .sectionSubheading:first-child {
+  margin-top: 0;
+}
+
+/* Remove bottom margin from the last element so padding stays balanced */
+.sectionBlock > *:last-child {
+  margin-bottom: 0;
+}
 .docNavStickyWrapper {
   margin-bottom: 4rem;
 }
