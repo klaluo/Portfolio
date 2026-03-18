@@ -408,17 +408,20 @@ const daybreak = {
                         {
                             type: "paragraphs",
                             items: [
-                                "The final version of Daybreak brings together the card system, board mechanics, and monster escalation into a cohesive digital experience.",
-                                "The final result was a fully built multiplayer game prototype demonstrating the core gameplay mechanics and visual direction.",
+                                "We finalized all game assets, UI, and interaction flows, bringing the core systems into a cohesive design.",
+                                "These were handed off to developers to implement into a fully playable multiplayer experience.",
                             ],
                         },
                         {
-                            type: "bullets",
-                            items: [
-                                "A strategic card-based gameplay system",
-                                "Multiplayer sabotage mechanics",
-                                "Interactive events like the Wheel of Death",
-                                "An escalating monster that grows stronger as players progress",
+                            type: "carousel",
+                            caption: "Here are some pictures of the game",
+                            images: [
+                                { src: "/images/projects/daybreak/daybreak-1.png", alt: "Gameplay screen 1" },
+                                { src: "/images/projects/daybreak/daybreak-2.png", alt: "Gameplay screen 2" },
+                                { src: "/images/projects/daybreak/daybreak-3.png", alt: "Gameplay screen 3" },
+                                { src: "/images/projects/daybreak/daybreak-4.png", alt: "Gameplay screen 4" },
+                                { src: "/images/projects/daybreak/daybreak-5.png", alt: "Gameplay screen 5" },
+                                { src: "/images/projects/daybreak/daybreak-6.png", alt: "Gameplay screen 6" },
                             ],
                         },
                     ],
