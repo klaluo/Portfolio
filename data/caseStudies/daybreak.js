@@ -5,16 +5,26 @@ const daybreak = {
 
     intro: {
         caseTag: "Case Study",
-        title: "Daybreak is a story-driven multiplayer horror game where players race to the finish line, making split-second decisions as they outpace the monster and outsmart their opponents.",
+        title: "Designing a Multiplayer Online Game Built on Storytelling, Strategy, Tension, and Replayability.",
         meta: {
             role: ["Product Designer & Scrum Master"],
             team: ["6 Designers", "3 Full-Stack Developers"],
             timeline: "8 Weeks",
             tools: ["Figma", "Illustrator", "Photoshop", "Jira", "Procreate"],
         },
+        introMedia: {
+            primary: {
+                src: "/images/projects/daybreak/daybreak-hero.jpg",
+                alt: "Daybreak gameplay screen",
+            },
+            secondary: {
+                src: "/images/projects/daybreak/daybreak-dashboard.png",
+                alt: "Daybreak card system",
+            },
+        },
     },
 
-    navLogo: { src: "/images/daybreak-logo.png", alt: "Daybreak" },
+    navLogo: { src: "/images/projects/daybreak/daybreak-favicon.png", alt: "Daybreak" },
 
     sections: [
 
@@ -32,15 +42,16 @@ const daybreak = {
                             type: "twoColumnContributions",
                             left: {
                                 paragraphs: [
-                                    "Daybreak is a digital multiplayer board game where players race to the end of a linear board before an ENTITY — a monster — hunts them down. Players take turns rolling dice, playing cards, and sabotaging each other, all while the monster grows stronger with each passing cycle.",
+                                    "Daybreak is a multiplayer board game where players race to reach safety before a pursuing monster catches them. Each turn combines dice movement, strategic card play, and player sabotage, creating a tense and competitive experience.",
                                     "The game ends when the last player standing reaches safety — or when the ENTITY claims them all.",
                                 ],
                             },
                             right: {
                                 label: "What I Contributed",
                                 bullets: [
-                                    "Led UX strategy and player experience design",
-                                    "Facilitated team alignment as Scrum Master",
+                                    "Contributed to UX and player experience design decisions",
+                                    "Delegated design tasks and maintained alignment across the team",
+                                    "Facilitated Scrum ceremonies, including daily stand-ups and sprint planning",
                                     "Designed card deal and steal interaction flows",
                                     "Created all card assets, the Wheel of Death, and game cursor",
                                     "Proposed and drove the project pivot that saved the timeline",
@@ -58,7 +69,6 @@ const daybreak = {
                         {
                             type: "paragraphs",
                             items: [
-                                "Many multiplayer games suffer the same fate: an exciting first session, then abandonment once the gameplay becomes predictable. Without meaningful choices or real player interaction, there's nothing pulling people back.",
                                 "For Daybreak, the design challenge was specific: how do you create a game that stays engaging across multiple rounds while balancing competition, randomness, and player control — without the experience becoming overwhelming or unfair?",
                             ],
                         },
@@ -173,8 +183,6 @@ const daybreak = {
                                     "Repetitive or grindy gameplay causes players to lose interest",
                                     "Overly complex systems (e.g. resource management) frustrate players",
                                     "Poorly designed UI makes games hard to enjoy",
-                                    "Difficulty is often unbalanced — too easy or too punishing",
-                                    "\"Quarterbacking\" reduces engagement for other players",
                                     "Bugs, lag, and microtransactions are deal-breakers",
                                 ],
                             },
@@ -184,9 +192,7 @@ const daybreak = {
                                     "**Strong narrative** to anchor player investment",
                                     "**Varied mechanics** that prevent repetition round-to-round",
                                     "**Intuitive UI** — clarity at a glance, no learning curve",
-                                    "**Scalable difficulty** that adapts to player skill level",
                                     "**Balanced multiplayer** — equal participation, no dominance",
-                                    "**Fair game design** — no pay-to-win, no time pressure",
                                     "**Stable performance** as a baseline expectation",
                                 ],
                             },
@@ -276,12 +282,17 @@ const daybreak = {
                         {
                             type: "paragraphs",
                             items: [
-                                "Two rounds of paper playtesting surfaced four critical balance issues before a single line of code was written.",
+                                "Three rounds of paper playtesting surfaced four critical balance issues before a single line of code was written.",
                             ],
                         },
                         {
                             type: "iterationCards",
                             cards: [
+                                {
+                                problem: "Mean cards could be stacked unfairly",
+                                description: "Players who collected multiple mean cards could stack them on a single player, creating overwhelming and unavoidable penalties.",
+                                fix: "Introduced a card currency system.",
+                                },
                                 {
                                     problem: "Players advanced too quickly",
                                     description: "Certain movement cards let players win in half the expected time, making the ENTITY feel irrelevant.",
@@ -289,7 +300,7 @@ const daybreak = {
                                 },
                                 {
                                     problem: "Too many sabotage cards",
-                                    description: "An unbalanced spiral emerged — one player could be pushed back repeatedly, making the experience punishing and unfun.",
+                                    description: "Too many sabotage cards created an imbalance where players could be repeatedly pushed back, making the experience feel punishing and frustrating.",
                                     fix: "Capped \"mean\" card distribution per deck",
                                 },
                                 {
@@ -297,16 +308,34 @@ const daybreak = {
                                     description: "Players didn't understand when the ENTITY would escalate stages. The monster felt unpredictable in a frustrating, not exciting, way.",
                                     fix: "Tied stages to checkpoint milestones, made visible on board",
                                 },
-                                {
-                                    problem: "Deny card caused confusion",
-                                    description: "Players weren't sure when they could play the Deny passive card or whether it needed to be activated manually.",
-                                    fix: "Clarified passive auto-trigger in rules + added UI tooltip",
-                                },
                             ],
                         },
                     ],
                 },
-
+                {
+                    type: "group",
+                    blocks: [
+                        { type: "tag", text: "Wireframes & Assets" },
+                        { type: "subheading", text: "Designing for Multiplayer Clarity" },
+                        {
+                            type: "paragraphs",
+                            items: [
+                                "After paper prototyping, I moved into wireframing the two most complex player interactions: the card deal flow (players pay card points to choose which card to play) and the steal flow (a multi-step interaction with randomized resolution).",
+                                "Balancing a dark horror aesthetic with readable UI required careful visual hierarchy and interaction feedback.",
+                            ],
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "**Card Deal Flow** — cost-gated card selection",
+                                "**Steal Flow** — randomized card theft sequence",
+                                "**Card Assets** — all three card type families",
+                                "**Wheel of Death** — visual spin mechanic",
+                                "**Custom Game Cursor**",
+                            ],
+                        },
+                    ],
+                },
                 {
                     type: "group",
                     blocks: [
@@ -353,30 +382,7 @@ const daybreak = {
                     ],
                 },
 
-                {
-                    type: "group",
-                    blocks: [
-                        { type: "tag", text: "Wireframes & Assets" },
-                        { type: "subheading", text: "Designing for Multiplayer Clarity" },
-                        {
-                            type: "paragraphs",
-                            items: [
-                                "After paper prototyping, I moved into wireframing the two most complex player interactions: the card deal flow (players pay card points to choose which card to play) and the steal flow (a multi-step interaction with randomized resolution).",
-                                "Balancing a dark horror aesthetic with readable UI required careful visual hierarchy and interaction feedback.",
-                            ],
-                        },
-                        {
-                            type: "bullets",
-                            items: [
-                                "**Card Deal Flow** — cost-gated card selection",
-                                "**Steal Flow** — randomized card theft sequence",
-                                "**Card Assets** — all three card type families",
-                                "**Wheel of Death** — visual spin mechanic",
-                                "**Custom Game Cursor**",
-                            ],
-                        },
-                    ],
-                },
+                
             ],
         },
 

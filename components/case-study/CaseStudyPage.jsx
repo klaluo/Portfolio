@@ -176,7 +176,21 @@ export default function CaseStudyPage({ project, styles }) {
                         </div>
                     </div>
                 );
-
+                case "image":
+    return (
+        <img
+            key={index}
+            src={block.src}
+            alt={block.alt}
+            style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "10px",
+                marginTop: "1rem",
+                display: "block",
+            }}
+        />
+    );
             case "featureCards":
                 return (
                     <div key={index} className={styles.featureCards}>

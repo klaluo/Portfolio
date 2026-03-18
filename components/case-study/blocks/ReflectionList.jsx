@@ -3,59 +3,59 @@
 /**
  * ReflectionList
  * ──────────────
- * Renders takeaways as a clean stacked list separated by thin grey dividers.
- * No large subheadings — just a small bold label + body text per item.
+ * 2×2 grid. Each takeaway has:
+ *   - numbered accent label (TAKEAWAY 01, 02...)
+ *   - bold title (label field)
+ *   - short body paragraph (body field)
  *
- * Data shape (from daybreak.js):
- *   block.items : {
- *     label : string   — bold short title
- *     body  : string   — supporting paragraph
- *   }[]
+ * Separated by a thin horizontal rule above the grid.
  */
 export default function ReflectionList({ block }) {
     const { items = [] } = block;
 
     return (
-        <div style={{
-            marginTop: "1.25rem",
-            border: "1px solid #e5e5e5",
-            borderRadius: "10px",
-            background: "#ffffff",
-            overflow: "hidden",
-        }}>
-            {items.map((item, i) => (
-                <div key={i} style={{
-                    display: "grid",
-                    gridTemplateColumns: "1.5rem 1fr",
-                    gap: "1rem",
-                    padding: "1.25rem 1.5rem",
-                    borderBottom: i < items.length - 1 ? "1px solid #f0f0f0" : "none",
-                    alignItems: "baseline",
-                }}>
-                    {/* Number */}
-                    <span style={{
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        color: "#d0d0d0",
-                        letterSpacing: "0.05em",
-                        paddingTop: "0.15rem",
-                    }}>
-                        {String(i + 1).padStart(2, "0")}
-                    </span>
+        <div style={{ marginTop: "2rem" }}>
+            {/* Thin rule */}
+            <div style={{
+                height: "1px",
+                background: "#e0e0e0",
+                marginBottom: "2.5rem",
+            }} />
 
-                    {/* Content */}
-                    <div>
+            {/* 2×2 grid */}
+            <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: "2.5rem 4rem",
+            }}>
+                {items.map((item, i) => (
+                    <div key={i}>
+                        {/* Numbered label */}
                         <p style={{
-                            fontSize: "0.9rem",
+                            fontSize: "0.65rem",
+                            fontWeight: 700,
+                            letterSpacing: "0.16em",
+                            textTransform: "uppercase",
+                            color: "#FFC358",
+                            margin: "0 0 0.75rem",
+                        }}>
+                            Takeaway {String(i + 1).padStart(2, "0")}
+                        </p>
+
+                        {/* Bold title */}
+                        <p style={{
+                            fontSize: "0.975rem",
                             fontWeight: 700,
                             color: "#1f1f1f",
-                            margin: "0 0 0.35rem",
-                            lineHeight: 1.4,
+                            margin: "0 0 0.6rem",
+                            lineHeight: 1.35,
                         }}>
                             {item.label}
                         </p>
+
+                        {/* Body */}
                         <p style={{
-                            fontSize: "0.875rem",
+                            fontSize: "0.9rem",
                             color: "#666666",
                             lineHeight: 1.7,
                             margin: 0,
@@ -63,8 +63,8 @@ export default function ReflectionList({ block }) {
                             {item.body}
                         </p>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }
