@@ -42,7 +42,8 @@ const gotit = {
                         },
                         {
                             type: "carousel",
-                            ariaLabel: "Got It codebook examples",
+                            ariaLabel: "Electrical Code Book examples",
+                            className: "overviewCarouselWrap",
                             images: [
                                 { src: "/images/projects/gotit/gotit-codebook1.png", alt: "Got It codebook 1" },
                                 { src: "/images/projects/gotit/gotit-codebook2.png", alt: "Got It codebook 2" },
@@ -436,7 +437,6 @@ const gotit = {
                 {
                     type: "group",
                     blocks: [
-                        { type: "tag", text: "Reflection" },
                         {
                             type: "paragraphs",
                             items: [

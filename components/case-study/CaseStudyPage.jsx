@@ -114,15 +114,19 @@ export default function CaseStudyPage({ project, styles }) {
             case "cardGrid":
                 return <CardGrid key={index} cards={block.cards} styles={styles} />;
 
-            case "carousel":
-                return (
-                    <Carousel
-                        key={index}
-                        images={block.images}
-                        ariaLabel={block.ariaLabel ?? "Carousel"}
-                        className={block.className}
-                    />
-                );
+                case "carousel": {
+                    const wrapClass = block.className
+                        ? styles[block.className]
+                        : styles.carouselWrap;
+                    return (
+                        <div key={index} className={wrapClass}>
+                            <Carousel
+                                images={block.images}
+                                ariaLabel={block.ariaLabel ?? "Carousel"}
+                            />
+                        </div>
+                    );
+                }
 
             case "findingsRow":
                 return (
