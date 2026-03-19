@@ -25,6 +25,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# cursor (editor logs)
+.cursor/debug.log
+.cursor/*.log
+.cursor/**/*.log
+
 # local env files
 .env*.local
 

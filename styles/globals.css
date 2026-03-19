@@ -927,6 +927,133 @@ a:hover {
   box-shadow: var(--shadow-lg);
 }
 
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+ 
+.footer {
+  background-color: #fff9f2;
+  border-top: 1px solid #ece8e1;
+}
+ 
+.footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+}
+ 
+/* CTA block */
+.footerCta {
+  text-align: center;
+  padding-bottom: 2.5rem;
+}
+ 
+.footerCtaLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FFC358;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+ 
+.footerCtaHeading {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #1f1f1f;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-family: 'Mona Sans', 'Segoe UI', sans-serif;
+}
+ 
+.footerCtaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  background: #1f1f1f;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+ 
+.footerCtaButton:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+ 
+.footerCtaButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+ 
+/* Divider */
+.footerDivider {
+  height: 1px;
+  background: #ece8e1;
+  margin-bottom: 1.5rem;
+}
+ 
+/* Bottom row */
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+ 
+.footerCopy {
+  font-size: 0.78rem;
+  color: #b0a89e;
+  margin: 0;
+}
+ 
+.footerNav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+ 
+.footerNavLink {
+  font-size: 0.78rem;
+  color: #888;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+ 
+.footerNavLink:hover {
+  color: #1f1f1f;
+}
+ 
+@media (max-width: 600px) {
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .footerNav {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+}
+ 
+
+@media (max-width: 600px) {
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .footerNav {
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+}
 /* Responsive */
 @media (max-width: 768px) {
   .navPill {
