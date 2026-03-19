@@ -431,9 +431,12 @@ export default function CaseStudyPage({ project, styles }) {
                             <a
                                 className={styles.docNavIcon}
                                 href={`#${topId}`}
-                                aria-label='Back to top'
+                                aria-label='Scroll up'
                             >
                                 ↑
+                                <span className={styles.docNavTooltip} role='tooltip'>
+                                    Scroll up
+                                </span>
                             </a>
                         </div>
 
