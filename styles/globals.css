@@ -422,6 +422,65 @@ a:hover {
   box-shadow: var(--shadow-lg);
 }
 
+/* ── Hero buttons — animated ─────────────────────────────────────────────────── */
+ 
+.heroPrimaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  background: #1f1f1f;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.heroPrimaryButton:hover {
+  background: #111;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.1);
+}
+ 
+.heroPrimaryButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+ 
+.heroGhostButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.72rem 1.4rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #3b3b3b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 1.5px #d8d8d8, 0 2px 6px rgba(0,0,0,0.06);
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+ 
+.heroGhostButton:hover {
+  background: #f5f5f5;
+  color: #1f1f1f;
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 1.5px #bbb, 0 6px 16px rgba(0,0,0,0.08);
+}
+ 
+.heroGhostButton:active {
+  transform: translateY(0);
+  box-shadow: inset 0 0 0 1.5px #d8d8d8, 0 1px 3px rgba(0,0,0,0.06);
+}
+
 /* Scroll down button – centered at bottom of hero */
 .scrollDownButton {
   position: absolute;
