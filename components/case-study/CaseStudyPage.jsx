@@ -89,6 +89,7 @@ export default function CaseStudyPage({ project, styles }) {
     const isExternalNavLogo =
         typeof navLogoHref === "string" && /^https?:\/\//.test(navLogoHref);
     const resolvedNavLogoHref = navLogoHref || "/";
+    const navLogoLabel = isExternalNavLogo ? "View website" : "Go to home";
 
     // ── Block renderer ────────────────────────────────────────────────────────
     function renderBlock(block, index) {
@@ -401,12 +402,15 @@ export default function CaseStudyPage({ project, styles }) {
                                 href={resolvedNavLogoHref}
                                 target={isExternalNavLogo ? "_blank" : undefined}
                                 rel={isExternalNavLogo ? "noreferrer" : undefined}
-                                aria-label='Go to home'
+                                aria-label={navLogoLabel}
                             >
                                 <img
                                     src={navLogo?.src}
                                     alt={navLogo?.alt ?? "Logo"}
                                 />
+                                <span className={styles.docNavTooltip} role='tooltip'>
+                                    {navLogoLabel}
+                                </span>
                             </a>
                             <ul className={styles.docNavList}>
                                 {outlineSections.map((section) => (
