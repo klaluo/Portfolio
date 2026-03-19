@@ -20,6 +20,7 @@ const gotit = {
     },
 
     navLogo: { src: "/images/gotit-logo-round.png", alt: "Got It logo" },
+    navLogoHref: "https://got-it-phi.vercel.app/",
 
     sections: [
 

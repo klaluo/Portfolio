@@ -24,7 +24,11 @@ const daybreak = {
         },
     },
 
-    navLogo: { src: "/images/projects/daybreak/daybreak-favicon.png", alt: "Daybreak" },
+    navLogo: {
+        src: "/images/projects/daybreak/daybreak-favicon.png",
+        alt: "Daybreak",
+    },
+    navLogoHref: "https://daybreak-da1w.onrender.com/",
 
     sections: [
 

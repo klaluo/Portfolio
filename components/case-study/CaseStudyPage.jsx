@@ -84,8 +84,11 @@ export default function CaseStudyPage({ project, styles }) {
         };
     }, [lightboxImage]);
 
-    const { intro, navLogo } = project;
+    const { intro, navLogo, navLogoHref } = project;
     const topId = project.topId || "case-study-top";
+    const isExternalNavLogo =
+        typeof navLogoHref === "string" && /^https?:\/\//.test(navLogoHref);
+    const resolvedNavLogoHref = navLogoHref || "/";
 
     // ── Block renderer ────────────────────────────────────────────────────────
     function renderBlock(block, index) {
@@ -395,7 +398,9 @@ export default function CaseStudyPage({ project, styles }) {
                         >
                             <a
                                 className={styles.docNavIcon}
-                                href='/'
+                                href={resolvedNavLogoHref}
+                                target={isExternalNavLogo ? "_blank" : undefined}
+                                rel={isExternalNavLogo ? "noreferrer" : undefined}
                                 aria-label='Go to home'
                             >
                                 <img
