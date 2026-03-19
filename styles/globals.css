@@ -93,6 +93,15 @@ a:hover {
   padding-top: 5.5rem;
 }
 
+.daybreak-page .nav {
+  position: fixed;
+  top: 0;
+}
+
+.daybreak-page main.main {
+  padding-top: 5.5rem;
+}
+
 .navLogo {
   display: block;
   flex-shrink: 0;
