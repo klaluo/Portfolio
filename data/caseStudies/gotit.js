@@ -278,7 +278,7 @@ const gotit = {
         // ── Design ─────────────────────────────────────────────────────────────
         {
             id: "design",
-            title: "Design and Ideation",
+            title: "Design",
             blocks: [
                 {
                     type: "group",
