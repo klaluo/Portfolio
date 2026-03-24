@@ -69,7 +69,7 @@ export default function Home() {
                             </span>
                         </h1>
                         <p className='heroSubtitle'>
-                            I combine UX strategy and thoughtful UI to create
+                            I combine UX strategy and intentional UI to create
                             experiences that help people get things done clearly
                             and efficiently.
                         </p>
