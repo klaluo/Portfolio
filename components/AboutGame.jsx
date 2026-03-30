@@ -90,30 +90,7 @@ export default function AboutGame() {
 
   const drawIdle = useCallback(() => {
     const canvas = canvasRef.current;
-    if (!canvas) {
-      // #region agent log
-      fetch(
-        "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Debug-Session-Id": "b00ec0",
-          },
-          body: JSON.stringify({
-            sessionId: "b00ec0",
-            runId: "pre-debug-about",
-            hypothesisId: "H2",
-            location: "components/AboutGame.jsx:drawIdle",
-            message: "drawIdle: canvasRef is null",
-            data: {},
-            timestamp: Date.now(),
-          }),
-        }
-      ).catch(() => {});
-      // #endregion
-      return;
-    }
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, W, H);
     drawGround(ctx);
@@ -211,27 +188,6 @@ export default function AboutGame() {
 
   const handlePlay = useCallback(() => {
     const s = stateRef.current;
-    // #region agent log
-    fetch(
-      "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Debug-Session-Id": "b00ec0",
-        },
-        body: JSON.stringify({
-          sessionId: "b00ec0",
-          runId: "pre-debug-about",
-          hypothesisId: "H4",
-          location: "components/AboutGame.jsx:handlePlay",
-          message: "handlePlay clicked",
-          data: { currentScore: s.score, playingFlag: s.playing },
-          timestamp: Date.now(),
-        }),
-      }
-    ).catch(() => {});
-    // #endregion
     if (s.animId) cancelAnimationFrame(s.animId);
     s.player = makePlayer();
     s.blocks = makeBlocks();
@@ -245,29 +201,8 @@ export default function AboutGame() {
   }, [gameLoop]);
 
   useEffect(() => {
-    // #region agent log
-    fetch(
-      "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Debug-Session-Id": "b00ec0",
-        },
-        body: JSON.stringify({
-          sessionId: "b00ec0",
-          runId: "pre-debug-about",
-          hypothesisId: "H3",
-          location: "components/AboutGame.jsx:useEffect(drawIdle)",
-          message: "AboutGame effect fired (drawIdle)",
-          data: { playing },
-          timestamp: Date.now(),
-        }),
-      }
-    ).catch(() => {});
-    // #endregion
     drawIdle();
-  }, [drawIdle, playing]);
+  }, [drawIdle]);
 
   useEffect(() => {
     const onKeyDown = (e) => {
@@ -277,88 +212,11 @@ export default function AboutGame() {
       }
     };
     const onKeyUp = (e) => { stateRef.current.keys[e.key] = false; };
-    const onWindowError = (event) => {
-      // #region agent log
-      fetch(
-        "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Debug-Session-Id": "b00ec0",
-          },
-          body: JSON.stringify({
-            sessionId: "b00ec0",
-            runId: "pre-debug-about",
-            hypothesisId: "H6",
-            location: "components/AboutGame.jsx:windowError",
-            message: "Caught window error event",
-            data: {
-              errorMessage: event?.message,
-              filename: event?.filename,
-              lineno: event?.lineno,
-              colno: event?.colno,
-            },
-            timestamp: Date.now(),
-          }),
-        }
-      ).catch(() => {});
-      // #endregion
-    };
-    const onUnhandledRejection = (event) => {
-      // #region agent log
-      fetch(
-        "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Debug-Session-Id": "b00ec0",
-          },
-          body: JSON.stringify({
-            sessionId: "b00ec0",
-            runId: "pre-debug-about",
-            hypothesisId: "H6",
-            location: "components/AboutGame.jsx:unhandledRejection",
-            message: "Caught unhandledrejection event",
-            data: { reason: String(event?.reason ?? "") },
-            timestamp: Date.now(),
-          }),
-        }
-      ).catch(() => {});
-      // #endregion
-    };
     window.addEventListener('keydown', onKeyDown);
     window.addEventListener('keyup', onKeyUp);
-    window.addEventListener('error', onWindowError);
-    window.addEventListener('unhandledrejection', onUnhandledRejection);
-
-    // #region agent log
-    fetch(
-      "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Debug-Session-Id": "b00ec0",
-        },
-        body: JSON.stringify({
-          sessionId: "b00ec0",
-          runId: "pre-debug-about",
-          hypothesisId: "H5",
-          location: "components/AboutGame.jsx:keyHandlers",
-          message: "Key handlers registered",
-          data: { keysInitially: Object.keys(stateRef.current.keys).length },
-          timestamp: Date.now(),
-        }),
-      }
-    ).catch(() => {});
-    // #endregion
     return () => {
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup', onKeyUp);
-      window.removeEventListener('error', onWindowError);
-      window.removeEventListener('unhandledrejection', onUnhandledRejection);
       if (stateRef.current.animId) cancelAnimationFrame(stateRef.current.animId);
     };
   }, []);

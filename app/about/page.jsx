@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AboutGame from "../../components/AboutGame";
+
 export default function About() {
     const [openSections, setOpenSections] = useState(() => new Set([0]));
     const sections = [
@@ -17,28 +18,6 @@ export default function About() {
             body: "Design systems, delightful micro‑interactions, and collaborating across disciplines. Outside of work, I enjoy exploring new tools, collecting design inspiration, and experimenting with motion and visual storytelling.",
         },
     ];
-
-    useEffect(() => {
-        fetch(
-            "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-Debug-Session-Id": "b00ec0",
-                },
-                body: JSON.stringify({
-                    sessionId: "b00ec0",
-                    runId: "pre-debug-about",
-                    hypothesisId: "H1",
-                    location: "app/about/page.jsx",
-                    message: "About page mounted/rendered",
-                    data: { openSectionsSize: openSections.size },
-                    timestamp: Date.now(),
-                }),
-            }
-        ).catch(() => {});
-    }, []);
 
     return (
         <main className='main aboutPage'>
