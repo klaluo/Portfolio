@@ -75,6 +75,9 @@ export default function About() {
                             );
                         })}
                     </div>
+                    <div className='aboutGameWrapper'>
+                        <AboutGame />
+                    </div>
                 </div>
             </section>
         </main>

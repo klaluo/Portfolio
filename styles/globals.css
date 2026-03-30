@@ -362,6 +362,10 @@ a:hover {
   border-top: 1px solid #ececec;
 }
 
+.aboutGameWrapper {
+  margin-top: 2.5rem;
+}
+
 .accordionItem {
   border-bottom: 1px solid #ececec;
 }
