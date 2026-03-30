@@ -2,14 +2,14 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const FACTS = [
-  { icon: '☕', text: 'I drink at least 2 cups of coffee before I touch any code.' },
-  { icon: '🎮', text: 'I grew up playing Nintendo 64 — Zelda shaped how I think about UX.' },
-  { icon: '🌿', text: 'I keep too many houseplants alive (and a few not so alive).' },
-  { icon: '🎵', text: 'I make playlists for every project I work on.' },
-  { icon: '🍜', text: 'I can eat ramen at any hour of the day. No exceptions.' },
-  { icon: '📚', text: 'I read design books the way others read novels — obsessively.' },
-  { icon: '🚴', text: 'Cycling is my thinking time. Best ideas come mid-ride.' },
-];
+    { icon: '✈️', text: 'I love traveling and exploring new countries.' },
+    { icon: '🖐️', text: 'I’m ambidextrous.' },
+    { icon: '💅', text: 'I run my own nail studio.' },
+    { icon: '🧳', text: 'I’ve lived out of a backpack for 2 months.' },
+    { icon: '🍣', text: 'I’ll try almost any food at least once.' },
+    { icon: '📱', text: 'I notice bad app design instantly.' },
+    { icon: '🛍️', text: 'I can’t leave a stationery store empty-handed.' },
+  ];
 
 const W = 700;
 const H = 280;
@@ -90,7 +90,30 @@ export default function AboutGame() {
 
   const drawIdle = useCallback(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      // #region agent log
+      fetch(
+        "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Debug-Session-Id": "b00ec0",
+          },
+          body: JSON.stringify({
+            sessionId: "b00ec0",
+            runId: "pre-debug-about",
+            hypothesisId: "H2",
+            location: "components/AboutGame.jsx:drawIdle",
+            message: "drawIdle: canvasRef is null",
+            data: {},
+            timestamp: Date.now(),
+          }),
+        }
+      ).catch(() => {});
+      // #endregion
+      return;
+    }
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, W, H);
     drawGround(ctx);
@@ -188,6 +211,27 @@ export default function AboutGame() {
 
   const handlePlay = useCallback(() => {
     const s = stateRef.current;
+    // #region agent log
+    fetch(
+      "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Debug-Session-Id": "b00ec0",
+        },
+        body: JSON.stringify({
+          sessionId: "b00ec0",
+          runId: "pre-debug-about",
+          hypothesisId: "H4",
+          location: "components/AboutGame.jsx:handlePlay",
+          message: "handlePlay clicked",
+          data: { currentScore: s.score, playingFlag: s.playing },
+          timestamp: Date.now(),
+        }),
+      }
+    ).catch(() => {});
+    // #endregion
     if (s.animId) cancelAnimationFrame(s.animId);
     s.player = makePlayer();
     s.blocks = makeBlocks();
@@ -201,8 +245,29 @@ export default function AboutGame() {
   }, [gameLoop]);
 
   useEffect(() => {
+    // #region agent log
+    fetch(
+      "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Debug-Session-Id": "b00ec0",
+        },
+        body: JSON.stringify({
+          sessionId: "b00ec0",
+          runId: "pre-debug-about",
+          hypothesisId: "H3",
+          location: "components/AboutGame.jsx:useEffect(drawIdle)",
+          message: "AboutGame effect fired (drawIdle)",
+          data: { playing },
+          timestamp: Date.now(),
+        }),
+      }
+    ).catch(() => {});
+    // #endregion
     drawIdle();
-  }, [drawIdle]);
+  }, [drawIdle, playing]);
 
   useEffect(() => {
     const onKeyDown = (e) => {
@@ -212,11 +277,88 @@ export default function AboutGame() {
       }
     };
     const onKeyUp = (e) => { stateRef.current.keys[e.key] = false; };
+    const onWindowError = (event) => {
+      // #region agent log
+      fetch(
+        "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Debug-Session-Id": "b00ec0",
+          },
+          body: JSON.stringify({
+            sessionId: "b00ec0",
+            runId: "pre-debug-about",
+            hypothesisId: "H6",
+            location: "components/AboutGame.jsx:windowError",
+            message: "Caught window error event",
+            data: {
+              errorMessage: event?.message,
+              filename: event?.filename,
+              lineno: event?.lineno,
+              colno: event?.colno,
+            },
+            timestamp: Date.now(),
+          }),
+        }
+      ).catch(() => {});
+      // #endregion
+    };
+    const onUnhandledRejection = (event) => {
+      // #region agent log
+      fetch(
+        "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Debug-Session-Id": "b00ec0",
+          },
+          body: JSON.stringify({
+            sessionId: "b00ec0",
+            runId: "pre-debug-about",
+            hypothesisId: "H6",
+            location: "components/AboutGame.jsx:unhandledRejection",
+            message: "Caught unhandledrejection event",
+            data: { reason: String(event?.reason ?? "") },
+            timestamp: Date.now(),
+          }),
+        }
+      ).catch(() => {});
+      // #endregion
+    };
     window.addEventListener('keydown', onKeyDown);
     window.addEventListener('keyup', onKeyUp);
+    window.addEventListener('error', onWindowError);
+    window.addEventListener('unhandledrejection', onUnhandledRejection);
+
+    // #region agent log
+    fetch(
+      "http://127.0.0.1:7242/ingest/31f33acf-2a95-405d-8a15-98d139ef5d36",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Debug-Session-Id": "b00ec0",
+        },
+        body: JSON.stringify({
+          sessionId: "b00ec0",
+          runId: "pre-debug-about",
+          hypothesisId: "H5",
+          location: "components/AboutGame.jsx:keyHandlers",
+          message: "Key handlers registered",
+          data: { keysInitially: Object.keys(stateRef.current.keys).length },
+          timestamp: Date.now(),
+        }),
+      }
+    ).catch(() => {});
+    // #endregion
     return () => {
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup', onKeyUp);
+      window.removeEventListener('error', onWindowError);
+      window.removeEventListener('unhandledrejection', onUnhandledRejection);
       if (stateRef.current.animId) cancelAnimationFrame(stateRef.current.animId);
     };
   }, []);
