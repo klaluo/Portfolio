@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import AboutGame from "@/components/AboutGame";
+import AboutGame from "../../components/AboutGame";
 export default function About() {
     const [openSections, setOpenSections] = useState(() => new Set([0]));
     const sections = [
