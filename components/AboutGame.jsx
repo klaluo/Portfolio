@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState, useCallback } from 'react';
-components/AboutGame.jsx
+import './AboutGame.css';
 
 const FACTS = [
     { icon: '✈️', text: 'I love traveling and exploring new countries.' },
