@@ -1,0 +1,85 @@
+.about-game {
+  --color-dark: #2c2c2a;
+  --color-light: #f9f7f2;
+  --color-border: #e0ddd5;
+  --color-muted: #555;
+  --color-faint: #888;
+
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background: var(--color-light);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  user-select: none;
+  max-width: 700px;
+  margin: 1rem auto;
+}
+
+.about-game__header {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-game__title,
+.about-game__score,
+.about-game__btn {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.about-game__title {
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.about-game__controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.about-game__score {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--color-faint);
+}
+
+.about-game__btn {
+  background: var(--color-dark);
+  color: var(--color-light);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.about-game__canvas {
+  display: block;
+  width: 100%;
+}
+
+.about-game__fact-bar {
+  min-height: 52px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-game__fact-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.about-game__fact-text {
+  color: #444;
+  line-height: 1.5;
+}
