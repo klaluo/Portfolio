@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
+
 const FACTS = [
     { icon: '✈️', text: 'I love traveling and exploring new countries.' },
     { icon: '🖐️', text: 'I’m ambidextrous.' },
@@ -225,46 +226,19 @@ export default function AboutGame() {
   }, []);
 
   return (
-    <div style={{
-      fontFamily: "'Courier New', monospace",
-      background: '#f9f7f2',
-      border: '1.5px solid #e0ddd5',
-      borderRadius: '12px',
-      overflow: 'hidden',
-      userSelect: 'none',
-      maxWidth: '700px',
-      margin: '1rem auto',
-    }}>
+    <div className="about-game">
       {/* Header */}
-      <div style={{
-        padding: '16px 20px 12px',
-        borderBottom: '1px solid #e0ddd5',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
-        <span style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em', color: '#555', textTransform: 'uppercase' }}>
+      <div className="about-game__header">
+        <span className="about-game__title">
           About Me — Interactive
         </span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{ fontSize: '12px', color: '#888', fontWeight: 600, letterSpacing: '0.05em' }}>
+        <div className="about-game__controls">
+          <span className="about-game__score">
             {score} / {FACTS.length}
           </span>
           <button
             onClick={handlePlay}
-            style={{
-              background: '#2c2c2a',
-              color: '#f9f7f2',
-              border: 'none',
-              borderRadius: '6px',
-              padding: '7px 18px',
-              fontSize: '12px',
-              fontFamily: "'Courier New', monospace",
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-            }}
+            className="about-game__btn"
           >
             {playing ? 'Restart' : 'Play'}
           </button>
@@ -276,20 +250,14 @@ export default function AboutGame() {
         ref={canvasRef}
         width={W}
         height={H}
-        style={{ display: 'block', width: '100%', imageRendering: 'pixelated' }}
+        className="about-game__canvas"
+        style={{ imageRendering: 'pixelated' }}
       />
 
       {/* Fact bar */}
-      <div style={{
-        minHeight: '52px',
-        padding: '12px 20px',
-        borderTop: '1px solid #e0ddd5',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '10px',
-      }}>
-        <span style={{ fontSize: '18px', flexShrink: 0 }}>{fact.icon}</span>
-        <span style={{ fontSize: '13px', color: '#444', lineHeight: 1.5 }}>{fact.text}</span>
+      <div className="about-game__fact-bar">
+        <span className="about-game__fact-icon">{fact.icon}</span>
+        <span className="about-game__fact-text">{fact.text}</span>
       </div>
     </div>
   );
