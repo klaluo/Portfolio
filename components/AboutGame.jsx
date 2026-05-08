@@ -3,12 +3,12 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import './AboutGame.css';
 
 const FACTS = [
-    { icon: '✈️', text: 'I love traveling and exploring new countries.' },
-    { icon: '🖐️', text: 'I’m ambidextrous.' },
+    { icon: '✈️', text: 'I love traveling and exploring new countries. ᯓ ✈︎ ⋆°•☁︎' },
+    { icon: '🖐️', text: 'I’m ambidextrous. ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧' },
     { icon: '💅', text: 'I run my own nail studio.' },
     { icon: '🧳', text: 'I’ve lived out of a backpack for 2 months.' },
-    { icon: '🍣', text: 'I’ll try almost any food at least once.' },
-    { icon: '📱', text: 'I notice bad app design instantly.' },
+    { icon: '🎵', text: 'I’m currently helping design a gamified music learning app for kids. ‧₊˚♪ 𝄞₊˚⊹'  },
+    { icon: '📷ྀིྀི', text: 'I have a soft spot for nostalgic tech and digital cameras. ༘⋆📼˚ ༘ ೀ⋆｡˚'},
     { icon: '🛍️', text: 'I can’t leave a stationery store empty-handed.' },
   ];
 
@@ -272,7 +272,7 @@ export default function AboutGame() {
           setFact(b.fact);
           spawnParticles(s.particles, b.x, b.y);
           if (s.score === FACTS.length) {
-            setTimeout(() => setFact({ icon: '🎉', text: "You found all my facts! Now you really know me. Thanks for playing 🙌" }), 500);
+            setTimeout(() => setFact({ icon: '🎉', text: "You found all my facts! Now you really know me. Thanks for playing ٩(◕‿◕｡)۶" }), 500);
           }
         }
       }
@@ -333,7 +333,7 @@ export default function AboutGame() {
       {/* Header */}
       <div className="about-game__header">
         <span className="about-game__title">
-          About Me — Interactive
+          About Me — Interactive ₊✩‧₊˚౨ৎ˚₊✩‧₊
         </span>
         <div className="about-game__controls">
           <span className="about-game__score">
