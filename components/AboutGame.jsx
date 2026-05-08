@@ -15,10 +15,11 @@ const FACTS = [
 const W = 700;
 const H = 280;
 const GROUND = H - 44;
+const S = 1.9;
 const BLOCK_W = 36;
 const BLOCK_H = 18;
 const BLOCK_X = [60, 150, 240, 330, 420, 510, 610];
-const BLOCK_Y = [150, 140, 155, 145, 150, 140, 148];
+const BLOCK_Y = [140, 130, 145, 135, 140, 130, 138];
 const PARTICLE_LIFE = 28;
 const PARTICLE_COUNT = 8;
 const PARTICLE_GRAVITY = 0.25;
@@ -53,26 +54,104 @@ export default function AboutGame() {
   const [score, setScore] = useState(0);
   const [fact, setFact] = useState({ icon: '🕹️', text: 'Press play, then use arrow keys or WASD to move. Jump with ↑ / W / Space to hit the blocks!' });
 
-  const drawPixelPerson = useCallback((ctx, x, y, facing) => {
+  const drawGirl = useCallback((ctx, px, py, facing) => {
     ctx.save();
-    ctx.translate(x + 9, y + 20);
+    ctx.translate(px + 14, py + 22);
+    ctx.scale(S, S);
     if (facing < 0) ctx.scale(-1, 1);
-    ctx.fillStyle = '#2c2c2a';
-    ctx.fillRect(-5, -20, 10, 6);
-    ctx.fillStyle = '#f5c48a';
-    ctx.fillRect(-4, -14, 8, 7);
-    ctx.fillStyle = '#2c2c2a';
-    ctx.fillRect(-2, -16, 2, 3);
-    ctx.fillRect(2, -16, 2, 3);
-    ctx.fillStyle = '#3a6fd8';
-    ctx.fillRect(-5, -7, 10, 8);
-    ctx.fillStyle = '#2c2c2a';
-    ctx.fillRect(-7, -7, 2, 6);
-    ctx.fillRect(5, -7, 2, 6);
-    ctx.fillStyle = '#444';
-    ctx.fillRect(-4, 1, 4, 6);
-    ctx.fillRect(0, 1, 4, 6);
+
+    // long black hair behind body
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(-6, -22, 12, 30);
+    ctx.fillRect(-8, -18, 3, 25);
+    ctx.fillRect(5, -18, 3, 25);
+
+    // head
+    ctx.fillStyle = '#f5c9a0';
+    ctx.fillRect(-5, -22, 10, 10);
+
+    // black fringe
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(-5, -22, 10, 3);
+    ctx.fillRect(-6, -20, 2, 6);
+    ctx.fillRect(4, -20, 2, 6);
+
+    // pink bow
+    ctx.fillStyle = '#ff6ba8';
+    ctx.fillRect(-5, -27, 4, 3);
+    ctx.fillRect(1, -27, 4, 3);
+    ctx.fillStyle = '#ff3d87';
+    ctx.fillRect(-1, -27, 2, 4);
+
+    // eyes
+    ctx.fillStyle = '#2a1a0a';
+    ctx.fillRect(-3, -17, 2, 2);
+    ctx.fillRect(1, -17, 2, 2);
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(-2, -17, 1, 1);
+    ctx.fillRect(2, -17, 1, 1);
+
+    // blush
+    ctx.fillStyle = 'rgba(255,130,130,0.45)';
+    ctx.fillRect(-5, -14, 2, 1);
+    ctx.fillRect(3, -14, 2, 1);
+
+    // smile
+    ctx.fillStyle = '#d97b6c';
+    ctx.fillRect(-1, -13, 2, 1);
+
+    // pink top
+    ctx.fillStyle = '#ff6ba8';
+    ctx.fillRect(-5, -12, 10, 8);
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(-2, -12, 4, 2);
+
+    // arms
+    ctx.fillStyle = '#f5c9a0';
+    ctx.fillRect(-7, -12, 2, 6);
+    ctx.fillRect(5, -12, 2, 6);
+
+    // yellow skirt
+    ctx.fillStyle = '#ffd700';
+    ctx.fillRect(-7, -4, 14, 6);
+    ctx.fillStyle = '#ffe94d';
+    ctx.fillRect(-6, -4, 12, 2);
+
+    // legs
+    ctx.fillStyle = '#f5c9a0';
+    ctx.fillRect(-4, 2, 3, 6);
+    ctx.fillRect(1, 2, 3, 6);
+
+    // pink shoes
+    ctx.fillStyle = '#d63384';
+    ctx.fillRect(-5, 7, 4, 2);
+    ctx.fillRect(1, 7, 4, 2);
+
     ctx.restore();
+  }, []);
+
+  const drawBg = useCallback((ctx) => {
+    ctx.fillStyle = '#d0eeff';
+    ctx.fillRect(0, 0, W, GROUND + 20);
+
+    [[70, 38], [250, 55], [460, 30], [600, 50]].forEach(([cx, cy]) => {
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      ctx.beginPath(); ctx.arc(cx, cy, 20, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(cx + 18, cy + 5, 15, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(cx - 14, cy + 6, 13, 0, Math.PI * 2); ctx.fill();
+    });
+
+    ctx.fillStyle = '#ffe566';
+    ctx.beginPath(); ctx.arc(650, 30, 18, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath(); ctx.arc(650, 30, 14, 0, Math.PI * 2); ctx.fill();
+
+    ctx.fillStyle = '#ffb3d1';
+    [[40, 80], [350, 28], [170, 95], [480, 65]].forEach(([sx, sy]) => {
+      ctx.font = '10px serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('✦', sx, sy);
+    });
   }, []);
 
   const drawBlock = useCallback((ctx, b) => {
@@ -86,10 +165,18 @@ export default function AboutGame() {
   }, []);
 
   const drawGround = useCallback((ctx) => {
-    ctx.fillStyle = '#e0ddd5';
-    ctx.fillRect(0, GROUND + 20, W, 2);
-    ctx.fillStyle = '#d0ccbf';
-    for (let i = 0; i < W; i += 36) ctx.fillRect(i, GROUND + 20, 18, 2);
+    ctx.fillStyle = '#5dbb3a';
+    ctx.fillRect(0, GROUND + 20, W, 5);
+    ctx.fillStyle = '#78d44e';
+    for (let i = 0; i < W; i += 38) ctx.fillRect(i, GROUND + 18, 20, 7);
+    ctx.fillStyle = '#a8e87a';
+    ctx.fillRect(0, GROUND + 25, W, H - GROUND - 25);
+    [60, 170, 300, 430, 560, 660].forEach(fx => {
+      ctx.fillStyle = '#ffd6e8';
+      ctx.fillRect(fx, GROUND + 15, 5, 5);
+      ctx.fillStyle = '#ffec80';
+      ctx.fillRect(fx + 1, GROUND + 16, 3, 3);
+    });
   }, []);
 
   const drawIdle = useCallback(() => {
@@ -97,14 +184,15 @@ export default function AboutGame() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, W, H);
+    drawBg(ctx);
     drawGround(ctx);
     FACTS.forEach((_, i) => drawBlock(ctx, { x: BLOCK_X[i], y: BLOCK_Y[i], hit: false, bounce: 0 }));
-    drawPixelPerson(ctx, 20, GROUND, 1);
+    drawGirl(ctx, 20, GROUND, 1);
     ctx.fillStyle = '#bbb';
     ctx.font = '11px Courier New';
     ctx.textAlign = 'center';
     ctx.fillText('press play to start', W / 2, H - 8);
-  }, [drawGround, drawBlock, drawPixelPerson]);
+  }, [drawBg, drawGround, drawBlock, drawGirl]);
 
   const spawnParticles = (particles, x, y) => {
     for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -127,6 +215,7 @@ export default function AboutGame() {
     if (!s.playing) return;
 
     ctx.clearRect(0, 0, W, H);
+    drawBg(ctx);
     drawGround(ctx);
 
     const { keys, player } = s;
@@ -185,10 +274,10 @@ export default function AboutGame() {
     });
 
     s.blocks.forEach(b => drawBlock(ctx, b));
-    drawPixelPerson(ctx, player.x, player.y, player.facing);
+    drawGirl(ctx, player.x, player.y, player.facing);
 
     s.animId = requestAnimationFrame(gameLoop);
-  }, [drawGround, drawBlock, drawPixelPerson]);
+  }, [drawBg, drawGround, drawBlock, drawGirl]);
 
   const handlePlay = useCallback(() => {
     const s = stateRef.current;
