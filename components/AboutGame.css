@@ -101,18 +101,20 @@
 .about-game__fact-bar {
   min-height: 52px;
   padding: 12px 20px;
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-border);
   display: flex;
   align-items: center;
   gap: 10px;
+  background: var(--color-bg-header);
 }
-
+ 
 .about-game__fact-icon {
-  font-size: 18px;
+  font-size: 20px;
   flex-shrink: 0;
 }
-
+ 
 .about-game__fact-text {
-  color: #444;
+  color: var(--color-text);
   line-height: 1.5;
+  font-weight: 600;
 }
