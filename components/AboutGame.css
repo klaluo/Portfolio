@@ -54,22 +54,44 @@
   gap: 14px;
 }
 
+.about-game__score,
+.about-game__btn {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+ 
 .about-game__score {
   font-size: 12px;
-  letter-spacing: 0.05em;
-  color: var(--color-faint);
+  color: var(--color-muted);
 }
-
+ 
 .about-game__btn {
-  background: var(--color-dark);
-  color: var(--color-light);
+  background: var(--color-green);
+  color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 7px 18px;
+  border-radius: 20px;
+  padding: 7px 20px;
   font-size: 12px;
   font-family: inherit;
   cursor: pointer;
+  box-shadow: 0 3px 0 var(--color-green-dk);
+  transition: transform 0.08s, box-shadow 0.08s;
 }
+ 
+.about-game__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 var(--color-green-dk);
+}
+ 
+.about-game__btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--color-green-dk);
+}
+
+
+
+
 
 .about-game__canvas {
   display: block;
