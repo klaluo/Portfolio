@@ -11,10 +11,9 @@
   --color-muted:      #c77dba;
   --color-green:      #3a9e5f;
   --color-green-dk:   #2a7a47;
-  
+
   font-family: 'Courier New', monospace;
   font-size: 13px;
- 
   background: var(--color-bg);
   border: 2px solid var(--color-border);
   border-radius: 16px;
@@ -25,26 +24,30 @@
 }
 
 .about-game__header {
-  padding: 16px 20px 12px;
-  border-bottom: 1px solid var(--color-border);
+  padding: 14px 20px 12px;
+  border-bottom: 2px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--color-bg-header);
 }
-
-.about-game__title,
-.about-game__score,
-.about-game__btn {
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
+ 
 .about-game__title {
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--color-muted);
+  color: var(--color-primary-dk);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-
+ 
+.about-game__title::before {
+  content: '🌸';
+  font-size: 14px;
+}
+ 
 .about-game__controls {
   display: flex;
   align-items: center;
