@@ -156,9 +156,23 @@ export default function AboutGame() {
 
   const drawBlock = useCallback((ctx, b) => {
     const by = b.y + b.bounce;
-    ctx.fillStyle = b.hit ? '#c8c2b0' : '#2c2c2a';
-    ctx.fillRect(b.x, by, BLOCK_W, BLOCK_H);
-    ctx.fillStyle = b.hit ? '#a8a298' : '#f9f7f2';
+
+    // drop shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.07)';
+    ctx.fillRect(b.x + 2, by + 2, BLOCK_W, BLOCK_H);
+
+    // block body (pink when unlit, soft pink when hit)
+    ctx.fillStyle = b.hit ? '#ffd6e8' : '#ff6ba8';
+    ctx.beginPath();
+    ctx.roundRect(b.x, by, BLOCK_W, BLOCK_H, 4);
+    ctx.fill();
+
+    // highlight strip along top
+    ctx.fillStyle = b.hit ? '#ffe8f2' : '#ff9ec5';
+    ctx.fillRect(b.x + 2, by + 2, BLOCK_W - 4, 3);
+
+    // label
+    ctx.fillStyle = b.hit ? '#d6a0b8' : '#fff';
     ctx.font = 'bold 13px Courier New';
     ctx.textAlign = 'center';
     ctx.fillText(b.hit ? '✓' : '?', b.x + BLOCK_W / 2, by + 13);
@@ -202,7 +216,7 @@ export default function AboutGame() {
         vx: (Math.random() - 0.5) * 4,
         vy: -Math.random() * 4 - 1,
         life: PARTICLE_LIFE,
-        color: ['#2c2c2a', '#3a6fd8', '#888'][i % 3],
+        color: ['#ff6ba8', '#ffd700', '#ff3d87', '#c77dba', '#ffe94d', '#fff'][i % 6],
       });
     }
   };
