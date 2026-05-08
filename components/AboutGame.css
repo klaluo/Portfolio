@@ -1,120 +1,118 @@
 .about-game {
-  --color-primary:    #ff6ba8;
-  --color-primary-dk: #d63384;
-  --color-primary-lt: #ffd6e8;
-  --color-accent:     #ffd700;
-  --color-accent-lt:  #fff5c0;
-  --color-border:     #ffb3d1;
-  --color-bg:         #fff0f6;
-  --color-bg-header:  #fff5fa;
-  --color-text:       #9b3a7a;
-  --color-muted:      #c77dba;
-  --color-green:      #3a9e5f;
-  --color-green-dk:   #2a7a47;
+    --color-primary: #ff6ba8;
+    --color-primary-dk: #d63384;
+    --color-primary-lt: #ffd6e8;
+    --color-accent: #ffd700;
+    --color-accent-lt: #fff5c0;
+    --color-border: #ffb3d1;
+    --color-bg: #fff0f6;
+    --color-bg-header: #fff5fa;
+    --color-text: #9b3a7a;
+    --color-muted: #c77dba;
+    --color-green: #3a9e5f;
+    --color-green-dk: #2a7a47;
 
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  background: var(--color-bg);
-  border: 2px solid var(--color-border);
-  border-radius: 16px;
-  overflow: hidden;
-  user-select: none;
-  max-width: 700px;
-  margin: 1rem auto;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    user-select: none;
+    max-width: 700px;
+    margin: 1rem auto;
 }
 
 .about-game__header {
-  padding: 14px 20px 12px;
-  border-bottom: 2px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--color-bg-header);
+    padding: 14px 20px 12px;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-bg-header);
 }
- 
+
 .about-game__title {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--color-primary-dk);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-dk);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
- 
+
 .about-game__title::before {
-  content: '🌸';
-  font-size: 14px;
+    content: "🌸";
+    font-size: 14px;
 }
- 
+
 .about-game__controls {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
 .about-game__score,
 .about-game__btn {
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
- 
+
 .about-game__score {
-  font-size: 12px;
-  color: var(--color-muted);
+    font-size: 12px;
+    color: var(--color-muted);
 }
- 
+
 .about-game__btn {
-  background: var(--color-green);
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 7px 20px;
-  font-size: 12px;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: 0 3px 0 var(--color-green-dk);
-  transition: transform 0.08s, box-shadow 0.08s;
+    background: var(--color-green);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 20px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 3px 0 var(--color-green-dk);
+    transition:
+        transform 0.08s,
+        box-shadow 0.08s;
 }
- 
+
 .about-game__btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 0 var(--color-green-dk);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 var(--color-green-dk);
 }
- 
+
 .about-game__btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 var(--color-green-dk);
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 var(--color-green-dk);
 }
-
-
-
-
 
 .about-game__canvas {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 .about-game__fact-bar {
-  min-height: 52px;
-  padding: 12px 20px;
-  border-top: 2px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--color-bg-header);
+    min-height: 52px;
+    padding: 12px 20px;
+    border-top: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-bg-header);
 }
- 
+
 .about-game__fact-icon {
-  font-size: 20px;
-  flex-shrink: 0;
+    font-size: 20px;
+    flex-shrink: 0;
 }
- 
+
 .about-game__fact-text {
-  color: var(--color-text);
-  line-height: 1.5;
-  font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.5;
+    font-weight: 600;
 }
