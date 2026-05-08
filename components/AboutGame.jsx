@@ -18,6 +18,9 @@ const BLOCK_W = 36;
 const BLOCK_H = 18;
 const BLOCK_X = [60, 150, 240, 330, 420, 510, 610];
 const BLOCK_Y = [150, 140, 155, 145, 150, 140, 148];
+const PARTICLE_LIFE = 28;
+const PARTICLE_COUNT = 8;
+const PARTICLE_GRAVITY = 0.25;
 
 function makeBlocks() {
   return FACTS.map((f, i) => ({
@@ -103,13 +106,13 @@ export default function AboutGame() {
   }, [drawGround, drawBlock, drawPixelPerson]);
 
   const spawnParticles = (particles, x, y) => {
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
       particles.push({
         x: x + BLOCK_W / 2,
         y,
         vx: (Math.random() - 0.5) * 4,
         vy: -Math.random() * 4 - 1,
-        life: 28,
+        life: PARTICLE_LIFE,
         color: ['#2c2c2a', '#3a6fd8', '#888'][i % 3],
       });
     }
@@ -173,8 +176,8 @@ export default function AboutGame() {
 
     s.particles = s.particles.filter(p => p.life > 0);
     s.particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy; p.vy += 0.25; p.life--;
-      ctx.globalAlpha = p.life / 28;
+      p.x += p.vx; p.y += p.vy; p.vy += PARTICLE_GRAVITY; p.life--;
+      ctx.globalAlpha = p.life / PARTICLE_LIFE;
       ctx.fillStyle = p.color;
       ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
       ctx.globalAlpha = 1;
