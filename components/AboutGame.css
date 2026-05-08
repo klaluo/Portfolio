@@ -11,12 +11,13 @@
   --color-muted:      #c77dba;
   --color-green:      #3a9e5f;
   --color-green-dk:   #2a7a47;
-
+  
   font-family: 'Courier New', monospace;
   font-size: 13px;
-  background: var(--color-light);
-  border: 1.5px solid var(--color-border);
-  border-radius: 12px;
+ 
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
   overflow: hidden;
   user-select: none;
   max-width: 700px;
