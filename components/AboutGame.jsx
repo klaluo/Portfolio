@@ -23,6 +23,12 @@ const BLOCK_Y = [140, 130, 145, 135, 140, 130, 138];
 const PARTICLE_LIFE = 28;
 const PARTICLE_COUNT = 8;
 const PARTICLE_GRAVITY = 0.25;
+const PARTICLE_VX_SPREAD = 4;
+const PARTICLE_VY_SPREAD = 4;
+const PARTICLE_VY_BIAS = 1;
+const PARTICLE_SIZE = 4;
+const PARTICLE_HALF = 2;
+const PARTICLE_COLORS = ['#ff6ba8', '#ffd700', '#ff3d87', '#c77dba', '#ffe94d', '#fff'];
 
 function makeBlocks() {
   return FACTS.map((f, i) => ({
@@ -213,10 +219,10 @@ export default function AboutGame() {
       particles.push({
         x: x + BLOCK_W / 2,
         y,
-        vx: (Math.random() - 0.5) * 4,
-        vy: -Math.random() * 4 - 1,
+        vx: (Math.random() - 0.5) * PARTICLE_VX_SPREAD,
+        vy: -Math.random() * PARTICLE_VY_SPREAD - PARTICLE_VY_BIAS,
         life: PARTICLE_LIFE,
-        color: ['#ff6ba8', '#ffd700', '#ff3d87', '#c77dba', '#ffe94d', '#fff'][i % 6],
+        color: PARTICLE_COLORS[i % PARTICLE_COLORS.length],
       });
     }
   };
@@ -283,7 +289,7 @@ export default function AboutGame() {
       p.x += p.vx; p.y += p.vy; p.vy += PARTICLE_GRAVITY; p.life--;
       ctx.globalAlpha = p.life / PARTICLE_LIFE;
       ctx.fillStyle = p.color;
-      ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+      ctx.fillRect(p.x - PARTICLE_HALF, p.y - PARTICLE_HALF, PARTICLE_SIZE, PARTICLE_SIZE);
       ctx.globalAlpha = 1;
     });
 
